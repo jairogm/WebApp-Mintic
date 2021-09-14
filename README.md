@@ -10,9 +10,7 @@ My name is Crihstian, I'm a Backend Developer from Cali Colombia
 
 My name is Sofía Betancourt, Frontend developer from Cali Colombia
 
-<<<<<<< HEAD
 My name is Laura Montana, an economist trying to get programming skills
-
 =======
 ### Jhon Jairo Garces Montes
 
