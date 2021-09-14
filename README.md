@@ -1,6 +1,6 @@
 # README STORE
 
-## Repositorie Members
+## Repository Members
 
 ### Crihstian Camilo Molina
 My name is Crihstian, I'm a Product Owner and Backend Developer from Cali Colombia
