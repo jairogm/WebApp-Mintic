@@ -1,1 +1,1 @@
-# WebApp-Mintic
+# README STORE
