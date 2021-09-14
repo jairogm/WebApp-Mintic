@@ -1,6 +1,6 @@
 # README STORE
 
-## Repositorie Members
+## Repository Members
 
 ### Crihstian Camilo Molina
 
