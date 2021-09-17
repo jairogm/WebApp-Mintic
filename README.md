@@ -16,3 +16,7 @@ My name is Laura Montana, an economist trying to get programming skills
 ### Jhon Jairo Garces Montes
 
 I'm Jhon Garces, Scrum Master from Medellin Colombia
+
+### Juan Esteban Pino Vidal
+
+I'm Juan, Data Base Manager and computer systems engineering student from Pereira/Colombia
