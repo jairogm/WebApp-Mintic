@@ -91,3 +91,25 @@ body {
 .login-box a:hover {
     color: #fff;
 }
+
+
+/* Footer */
+
+.footer-container {
+    position: fixed;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    background: #3E1000;
+    color: #fff;
+    text-align: center;
+    font-size: 12px;
+}
+
+.footer-container a {
+    text-decoration: none;
+    font-size: 13px;
+    line-height: 20px;
+    color: #fff;
+    text-align: justify;
+}
