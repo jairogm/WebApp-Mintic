@@ -142,6 +142,7 @@ body {
 }
 
 .store-item {
+<<<<<<< HEAD
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -180,4 +181,30 @@ body {
     line-height: 20px;
     color: #fff;
     text-align: justify;
+=======
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  font-size: 1em;
+}
+.store-item > img {
+  border: 3px solid var(--second-color);
+  border-radius: 10px;
+  color: var(--second-color);
+  width: 15em;
+  display: inline-block;
+  vertical-align: -0.125em;
+}
+/* <!-- STORES --> */
+
+footer {
+  height: 30px;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  position: fixed;
+  display: flex;
+  text-align: center;
+  background-color: var(--second-color);
+>>>>>>> 2d6776fcdf6f802667e7c2b8b4331336dc7f18d7
 }
