@@ -128,3 +128,14 @@ body {
   vertical-align: -0.125em;
 }
 /* <!-- STORES --> */
+
+footer {
+  height: 30px;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  position: fixed;
+  display: flex;
+  text-align: center;
+  background-color: var(--second-color);
+}
