@@ -75,14 +75,15 @@ p{
 
 .section-1-container{
     display: flex;
-    margin: 4rem 0;
+    margin: 2rem 0;
     flex-direction: column;
 }
 
 .shop-data{
     display: flex;
     width: 75%;
-    margin:  5rem auto;
+    margin:  auto;
+    padding-bottom: 2rem;
 
 }
 
@@ -156,7 +157,13 @@ p{
     justify-content: space-between;
 }
 
-footer{
-    height: 4rem;
+footer {
+    height: 30px;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    position: fixed;
+    display: flex;
+    text-align: center;
     background-color: var(--second-color);
-}
+  }
