@@ -38,6 +38,16 @@ header{
     margin: auto;
 }
 
+.btn:hover{
+    background-color: #ECC939
+
+}
+
+.btn:focus{
+    background-color: #fff;
+    border: #CEB035 solid 5px;
+}
+
 .btn-icon{
     margin: auto;
     width: 3rem;
@@ -55,10 +65,7 @@ h2{
     margin: auto;
 }
 
-.btn:hover{
-    background-color: #ECC939
 
-}
 
 .container-header{
     display: flex;
@@ -75,7 +82,7 @@ p{
 
 .section-1-container{
     display: flex;
-    margin: 2rem 0;
+    margin-top: 2rem;
     flex-direction: column;
 }
 
@@ -142,7 +149,7 @@ p{
 }
 
 .purchase-state{
-    margin: 5rem auto;
+    margin: 2rem auto;
     width: 75%;
 }
 
@@ -157,13 +164,43 @@ p{
     justify-content: space-between;
 }
 
-footer {
-    height: 30px;
+.btn-state{
+    display: flex;
+    text-transform: uppercase;
+    border-radius: 5px;
+    border: 2px solid transparent;
+    transition: all .35s ease;
+    background-color: var(--fourth-color);
+    margin-left: auto;
+    margin-top: 2rem;
+    padding: 0.5rem;
+}
+
+.btn-state:hover{
+    background-color: #ECC939
+
+}
+
+.btn-state:focus{
+    background-color: #fff;
+    border: #CEB035 solid 5px;
+}
+
+.footer-container {
+    position:sticky;
     width: 100%;
     left: 0;
     bottom: 0;
-    position: fixed;
-    display: flex;
+    background: #3E1000;
+    color: #fff;
     text-align: center;
-    background-color: var(--second-color);
-  }
+    font-size: 12px;
+}
+
+.footer-container a {
+    text-decoration: none;
+    font-size: 13px;
+    line-height: 20px;
+    color: #fff;
+    text-align: justify;
+}
