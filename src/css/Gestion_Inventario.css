@@ -1,0 +1,172 @@
+:root {
+    --buttons-height: 30px;
+    --nav-bg-color: #3E1000;
+}
+
+html {
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 0px;
+}
+
+header {
+    background-color: var(--second-color);
+    color: #3E1000;
+    padding: 1rem;
+}
+
+.btn {
+    display: flex;
+    text-transform: uppercase;
+    border-radius: 5px;
+    border: 2px solid transparent;
+    transition: all .35s ease;
+    background-color: var(--fourth-color);
+    margin: auto;
+    position: relative;
+    top: -68px;
+    left: 40%;
+}
+
+.btn:hover {
+    background-color: #ECC939
+}
+
+.btn:focus {
+    background-color: #fff;
+    border: #CEB035 solid 5px;
+}
+
+.btn-icon {
+    margin: auto;
+    width: 3rem;
+}
+
+.btn-text {
+    font-size: 0.8125rem;
+    font-weight: 700;
+    letter-spacing: .5px;
+    padding: .75rem 2rem;
+}
+
+.container-header {
+    display: flex;
+    flex-direction: row;
+    width: 970px;
+    margin: auto;
+}
+
+header {
+    width: 100%;
+    background-color: #3E1000;
+    height: 65px;
+    padding: 20px;
+    position: fixed;
+    z-index: 300;
+}
+
+.logo img {
+    height: 65px;
+}
+
+#Agregar-productos {
+    width: 250px;
+    height: 480px;
+    background: #ceb035;
+    color: #fff;
+    position: relative;
+    box-sizing: border-box;
+    padding: 50px 50px;
+}
+
+#Modificar-productos {
+    width: 250px;
+    height: 250px;
+    background: #653719;
+    color: #fff;
+    position: relative;
+    box-sizing: border-box;
+    padding: 50px 50px;
+}
+
+.container {
+    margin: 0;
+    padding: 10px 0 10px;
+    text-align: center;
+    font-size: 20px;
+}
+
+.container label {
+    margin: 0;
+    padding: 0;
+    font-weight: lighter;
+    display: block;
+    text-align: left;
+    font-size: 15px;
+}
+
+
+/*inputs*/
+
+#Agregar-productos input {
+    width: 100%;
+    margin-bottom: 13px;
+}
+
+#Modificar-productos input {
+    width: 100%;
+    margin-bottom: 13px;
+}
+
+#Agregar-productos input[type="submit"] {
+    border: none;
+    outline: none;
+    height: 35px;
+    background: #3E1000;
+    color: #fff;
+    font-size: 13px;
+    border-radius: 5px;
+}
+
+#Modificar-productos input[type="submit"] {
+    border: none;
+    outline: none;
+    height: 35px;
+    background: #3E1000;
+    color: #fff;
+    font-size: 13px;
+    border-radius: 5px;
+}
+
+#Agregar-productos input[type="submit"]:hover {
+    cursor: pointer;
+    background: #ffc107;
+    color: #000;
+}
+
+#Modificar-productos input[type="submit"]:hover {
+    cursor: pointer;
+    background: #ffc107;
+    color: #000;
+}
+
+
+/* Footer */
+
+.footer-container {
+    position: fixed;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    background: #3E1000;
+    color: #fff;
+    text-align: center;
+    font-size: 12px;
+}
+
+.footer-container a {
+    text-decoration: none;
+    font-size: 13px;
+    line-height: 20px;
+    color: #fff;
+    text-align: justify;
+}
