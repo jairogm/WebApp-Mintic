@@ -1,0 +1,140 @@
+:root {
+  --first-color: #3e1000;
+  --second-color: #5a1a05;
+  --third-color: #653719;
+  --fourth-color: #ceb035;
+  --fiveth-color: #45230c;
+}
+
+body {
+  margin: 0%;
+  background-color: var(white);
+}
+
+#upper-tittle-inventario {
+  width: 100%;
+  height: 40px;
+  background-color: #5a1a05;
+  font-family: Arial, Helvetica, sans-serif;
+  color: aliceblue;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contenedor-inventario-body {
+  width: 100%;
+  height: 100vh;
+  margin-top: 20px;
+}
+
+.container-input-inventario {
+  width: 400px;
+  height: 550px;
+  background-color: #ceb035;
+
+  padding: 10px;
+}
+
+.gestion-input-container {
+  display: flex;
+  width: 100%;
+  justify-content: flex-start;
+  text-align: left;
+  flex-direction: column;
+  margin-top: 10px;
+}
+.gestion-label-text {
+  font-size: 16px;
+  font-weight: 500;
+  color: #3e1000;
+}
+.container-inventario {
+  display: flex;
+  width: 40%;
+  flex-direction: column;
+  align-items: center;
+}
+
+.gestion-style {
+  height: 30px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  margin-top: 5px;
+  background-color: transparent;
+  border-bottom: 1px solid wheat;
+  color: white;
+}
+
+.gestion-style::placeholder {
+  color: white;
+  font-size: 15px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.container-form-gestion {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 500px;
+  margin: 20px;
+}
+
+.gestion-button {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.gestion-button-form {
+  background-color: var(--first-color);
+  color: white;
+  border-radius: 80px;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  width: 150px;
+  height: 40px;
+  margin-right: 10px;
+  font-size: 13px;
+}
+
+.container-input-inventario2 {
+  width: 400px;
+  height: 330px;
+  background-color: #ceb035;
+
+  padding: 10px;
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+.container-form-gestion2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 290px;
+  margin: 20px;
+}
+
+.footer-container {
+  position: fixed;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  background: #3e1000;
+  color: #fff;
+  text-align: center;
+  font-size: 12px;
+}
+
+.footer-container a {
+  text-decoration: none;
+  font-size: 13px;
+  line-height: 20px;
+  color: #fff;
+  text-align: justify;
+}
