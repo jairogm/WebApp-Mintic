@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion de Inventario</title>
+    <link href="src/css/Gestion_Inventario.css" rel="stylesheet" />
+</head>
+
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="src/img/Logo2.png" alt="Logo de Readme">
+            </div>
+            <button class="btn"> 
+            <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" width="30" height="16" fill="currentColor" class="bi bi-arrow-bar-left" viewBox="0 0 16 16">
+                <path class="btn-icon-path" fill-rule="evenodd" d="M12.5 15a.5.5 0 0 1-.5-.5v-13a.5.5 0 0 1 1 0v13a.5.5 0 0 1-.5.5zM10 8a.5.5 0 0 1-.5.5H3.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L3.707 7.5H9.5a.5.5 0 0 1 .5.5z"/>
+              </svg>
+          <p class="btn-text">Regresar</p>
+        </button>
+        </div>
+    </header>
+
+    <section id="Titulo">
+        <div class="content">
+            <h2>Gestion de Inventario</h2>
+        </div>
+    </section>
+    <section id="Agregar-productos">
+        <div class="container">
+            <form>
+                <!--Codigo-->
+                <label for="id">Código</label>
+                <input type="text" placeholder="Ingrese el codigo">
+
+                <!--Titulo del libro-->
+                <label for="title">Titulo del Libro</label>
+                <input type="text" placeholder="Ingrese el titulo">
+
+                <!--Autor-->
+                <label for="author">Autor</label>
+                <input type="text" placeholder="Ingrese el Autor">
+
+                <!--Año-->
+                <label for="year">Año</label>
+                <input type="text" placeholder="Ingrese el Año">
+
+                <!--Editorial-->
+                <label for="editorial">Editorial</label>
+                <input type="text" placeholder="Ingrese la editorial">
+
+                <!--precio-->
+                <label for="price">Precio</label>
+                <input type="number" min="0.00" max="10000.00" step="0.01" />
+
+                <!--Cantidad de existencias-->
+                <label for="amount">Cantidad</label>
+                <input type="number" min="0" step="any">
+
+                <input type="submit" value="Agregar Producto">
+            </form>
+        </div>
+        <section id="Modificar-productos">
+            <div class="container">
+                <form>
+                    <!--Buscar por ID-->
+                    <label for="id">Buscar ID</label>
+                    <input type="search" placeholder="Ingrese el codigo">
+
+                    <!--Buscar por Titulo-->
+                    <label for="title">Titulo del Libro</label>
+                    <input type="search" placeholder="Ingrese el titulo">
+
+                    <input type="submit" value="Buscar">
+                    <input type="submit" value="Modificar producto">
+                    <input type="submit" value="Eliminar producto">
+
+                </form>
+            </div>
+
+        </section>
+        <footer>
+            <div class="footer-container">
+                <a href="#">Politica de Privacidad</a> |
+                <a href="#">Terminos & condiciones</a> | &copy Copyright 2021- ReadMe Libreria - Todos los derechos revervados.
+            </div>
+        </footer>
+
+
+
+
+</body>
+
+</html>
