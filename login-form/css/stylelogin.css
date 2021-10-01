@@ -12,7 +12,7 @@ body {
 
 .login-box {
     width: 380px;
-    height: 525px;
+    height: 475px;
     background: #ceb035;
     color: #fff;
     top: 50%;
@@ -99,11 +99,11 @@ body {
 }
 
 
-/* G uthentication */
+/* G Authentication */
 
 .g-signin2 {
-    position: absolute;
-    top: 75%;
+    position: fixed;
+    top: 72%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
