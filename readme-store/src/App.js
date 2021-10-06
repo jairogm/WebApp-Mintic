@@ -2,9 +2,9 @@ import HeaderComponent from './components/HeaderComponent'
 import ContentComponent from './components/ContentComponent';
 import FooterComponent from './components/FooterComponent';
 
-import './components/HeaderComponent.css'
-import './components/ContentComponent.css'
-import './components/FooterComponent.css'
+import './components/css/HeaderComponent.css'
+import './components/css/ContentComponent.css'
+import './components/css/FooterComponent.css'
 
 function App() {
   return (
