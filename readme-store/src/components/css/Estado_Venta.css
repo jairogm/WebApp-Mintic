@@ -61,11 +61,6 @@ header{
     padding: .75rem 2rem;
 }
 
-h2{
-    margin: auto;
-}
-
-
 
 .container-header{
     display: flex;
@@ -76,7 +71,7 @@ h2{
     padding-right: 5px;
 }
 
-p{
+.shop-data p{
     margin: auto;
 }
 
@@ -184,23 +179,4 @@ p{
 .btn-state:focus{
     background-color: #fff;
     border: #CEB035 solid 5px;
-}
-
-.footer-container {
-    position:sticky;
-    width: 100%;
-    left: 0;
-    bottom: 0;
-    background: #3E1000;
-    color: #fff;
-    text-align: center;
-    font-size: 12px;
-}
-
-.footer-container a {
-    text-decoration: none;
-    font-size: 13px;
-    line-height: 20px;
-    color: #fff;
-    text-align: justify;
 }
