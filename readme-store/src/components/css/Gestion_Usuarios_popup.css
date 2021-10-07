@@ -20,7 +20,7 @@ body {
 .update-box{
     display: flex;
     border: 1px solid #000;
-    width: 30%;
+    width: 25rem;
     flex-direction: column;
     margin: 30px;
 }

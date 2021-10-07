@@ -17,11 +17,6 @@ body {
     --fiveth-color: #45230C;
   }
 
-header{
-    background-color: var(--second-color);
-    color: #fff;
-    padding: 1rem;
-}
 
 .h2-logo{
     text-align: center;
@@ -60,9 +55,6 @@ header{
     padding: 0 2rem;
 }
 
-h2{
-    margin: auto;
-}
 
 .container-header{
     display: flex;
@@ -103,7 +95,6 @@ h2{
   margin-top: 5px;
   background-color: transparent;
   border-bottom: 1px solid wheat;
-  color: white;
   font-size: 16px;
 }
 
@@ -138,23 +129,4 @@ h2{
     border-right: 2px solid black;
 }
 
-.footer-container {
-    position: fixed;
-    width: 100%;
-    left: 0;
-    bottom: 0;
-    background: #3E1000;
-    color: #fff;
-    text-align: center;
-    font-size: 12px;
-
-}
-
-.footer-container a {
-    text-decoration: none;
-    font-size: 13px;
-    line-height: 20px;
-    color: #fff;
-    text-align: justify;
-}
 
