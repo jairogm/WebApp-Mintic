@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import './css/Estado_Venta.css'
 
-export default class Estado_Venta extends Component {
+export default class EstadoVenta extends Component {
     render() {
         return (
             <div>

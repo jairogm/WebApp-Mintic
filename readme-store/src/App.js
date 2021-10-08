@@ -2,6 +2,7 @@ import HeaderComponent from "./components/HeaderComponent";
 import ContentComponent from "./components/ContentComponent";
 import FooterComponent from "./components/FooterComponent";
 import GestionUsuarios from "./components/Gestion_Usuarios";
+import EstadoVenta from "./components/Estado_Venta";
 
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
@@ -19,10 +20,10 @@ function App() {
               <Link to="/">Home</Link>
             </li>
             <li>
-              <Link to="/gestionusuarios">About</Link>
+              <Link to="/gestionusuarios">Gestion Usuarios</Link>
             </li>
             <li>
-              <Link to="/dashboard">Dashboard</Link>
+              <Link to="/dashboard">Estado Venta</Link>
             </li>
           </ul>
 
@@ -44,8 +45,8 @@ function App() {
             <Route path="/gestionusuarios">
               <GestionUsuarios />
             </Route>
-            <Route path="/dashboard">
-              <h1>Hello</h1>
+            <Route path="/estadoventa">
+              <EstadoVenta/>
             </Route>
           </Switch>
         </div>
