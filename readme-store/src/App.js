@@ -1,6 +1,8 @@
 import HeaderComponent from './components/HeaderComponent'
 import ContentComponent from './components/ContentComponent';
 import FooterComponent from './components/FooterComponent';
+import EstadoVenta from './components/EstadoVenta';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import './components/css/HeaderComponent.css'
 import './components/css/ContentComponent.css'
@@ -10,7 +12,12 @@ function App() {
   return (
     <>
       <HeaderComponent />
-      <ContentComponent/>
+        <Router>
+
+          <Route exact path="/" component={ContentComponent} />
+          <Route path="/EstadoVenta/:id" component={EstadoVenta} />
+
+        </Router>
       <FooterComponent />
     </>
   );
