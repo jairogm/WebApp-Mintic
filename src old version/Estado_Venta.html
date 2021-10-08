@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/Estado_Venta.css">
+    <title>Estado De Venta</title>
+    
+</head>
+<body>
+    <header>
+        <h2 class = "h2-logo">
+            ReadMe Store
+        </h2>
+        <div class="container-header">
+            <h2>Estado de la orden</h2>
+            <button class="btn"> 
+                <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" width="30" height="16" fill="currentColor" class="bi bi-arrow-bar-left" viewBox="0 0 16 16">
+                    <path class="btn-icon-path" fill-rule="evenodd" d="M12.5 15a.5.5 0 0 1-.5-.5v-13a.5.5 0 0 1 1 0v13a.5.5 0 0 1-.5.5zM10 8a.5.5 0 0 1-.5.5H3.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L3.707 7.5H9.5a.5.5 0 0 1 .5.5z"/>
+                  </svg>
+              <p class="btn-text">Regresar</p>
+            </button>
+        </div>
+    </header>
+
+    <section class="section-1-container">
+        <div class="shop-data">
+            <p>Pedido #234123</p>
+            <p>Fecha: 20/11/2020</p>
+        </div>
+        <div class="product-table">
+            <div class = "row-head">Producto</div>
+            <div class = "row-head">Cantidad</div>
+            <div class = "row-head">Precio Unitario</div>
+            <div class = "row-head">Precio Total</div>
+
+            <!-- first row-->
+            <div class = "row-odd">Producto</div>
+            <div class = "row-odd">Cantidad</div>
+            <div class = "row-odd">Precio Unitario</div>
+            <div class = "row-odd">Precio Total</div>
+            
+            <!-- second row-->
+            <div class = "row-pair">Producto</div>
+            <div class = "row-pair">Cantidad</div>
+            <div class = "row-pair">Precio Unitario</div>
+            <div class = "row-pair">Precio Total</div>
+            
+            <!-- third row-->
+            <div class = "row-odd">Producto</div>
+            <div class = "row-odd">Cantidad</div>
+            <div class = "row-odd">Precio Unitario</div>
+            <div class = "row-odd">Precio Total</div>
+            
+            <!-- fourth row-->
+            <div class = "row-pair">Producto</div>
+            <div class = "row-pair">Cantidad</div>
+            <div class = "row-pair">Precio Unitario</div>
+            <div class = "row-pair">Precio Total</div>
+        </div>
+
+        <div class="purchase-data">
+            <p class="purchase-data-item">Subtotal:        .</p>
+            <p class="purchase-data-item">Envío:           .</p>
+            <p class="purchase-data-item">Total:           .</p>
+            <p class="purchase-data-item">Metodo de pago:           .</p>
+        </div>
+    </section>
+
+    <section class="shipping-data">
+        <p class="shipping-data-title">Datos de envío:</p>
+        <p class="shipping-data-item">Nombre:</p>
+        <p class="shipping-data-item">Email:</p>
+        <p class="shipping-data-item">Teléfono:</p>
+        <p class="shipping-data-item">Dirección:</p>
+    </section>
+    <section class="purchase-state">
+        <div class="purchase-state-item-container">
+            <p class="purchase-state-item">Orden Recibida</p>
+            <p class="purchase-state-item">Pago Aprobado</p>
+            <p class="purchase-state-item">Orden Facturada</p>
+            <p class="purchase-state-item">Pedido Enviado</p>
+            <p class="purchase-state-item">Pedido Recibido</p>
+        </div>
+        <input class="state-range" type="range" min="0" max="5">
+        <button class="btn-state">Estado de Venta</button>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <a href="#">Politica de Privacidad</a> |
+            <a href="#">Terminos & condiciones</a> | &copy Copyright 2021- ReadMe Libreria - Todos los derechos revervados.
+        </div>
+    </footer>
+
+</body>
+</html>
