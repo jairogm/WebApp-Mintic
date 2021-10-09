@@ -2,6 +2,8 @@ import React from "react";
 import GoogleLogin from 'react-google-login';
 
 
+
+
 const clientId= "274458045197-0e7v4i3qujmmv24q3dirtkvhvab2usa0.apps.googleusercontent.com";
 
 function Login() {
@@ -18,8 +20,8 @@ return (
         <GoogleLogin
         clientId="274458045197-0e7v4i3qujmmv24q3dirtkvhvab2usa0.apps.googleusercontent.com"
         buttonText="Inicio de Sesión"
-        onSuccess={responseGoogle}
-        onFailure={responseGoogle}
+        //onSuccess={responseGoogle}
+        //onFailure={responseGoogle}
         cookiePolicy={'single_host_origin'}
         style={{ marginTop: '100px'}}
         isSignedIn={true}
