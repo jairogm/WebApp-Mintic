@@ -22,7 +22,6 @@ body {
     border: 1px solid #000;
     width: 25rem;
     flex-direction: column;
-    margin: 30px;
 }
 
 .update-label{
@@ -76,4 +75,59 @@ body {
 }
 
 
+  .modal-back {
+    background-color: rgba(0, 0, 0, 0.404);
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    /* right: 0; */
+    z-index: 9999;
+    display: none;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .gest-usu-modal__dialog {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  }
 
+  .modal__dialog {
+    height: auto;
+    border-radius: 12px;
+    background-color:#fff ;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    display: flex;
+    flex-direction: column;
+    padding: 25px;
+  }
+  
+  .modal-open {
+    display: grid;
+  }
+  .modal-title {
+    font-size: 20px;
+    font-weight: 100;
+  }
+ 
+  
+  .titleCloseBtn {
+    float: right;
+    width: 20px;
+  }
+  
+  
+  .titleCloseBtn button {
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+  }
+  
+  .titleCloseBtn button:hover {
+    background-color: none;
+  }
+  

@@ -1,72 +1,101 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, Component} from "react";
 import "./css/Gestion_Usuarios.css";
-
-import PopUp from "./PopUp";
+import GestionUsuariospopup from './GestionUsuariosPopup';
 import usePopUp from "../hooks/usePopUp";
-function Gestion_Usuarios() {
+import axios from 'axios';
+
+
+class UsuarioTabla extends Component {
+  render() {
+    return (
+        <>
+          <div className={this.props.row}>{this.props.user.id}</div>
+          <div className={this.props.row}>{this.props.user.name}</div>
+          <div className={this.props.row}>{this.props.user.username}</div>
+          <div className={this.props.row}>{this.props.user.email}</div>
+          <div className={this.props.row}>{this.props.user.role}</div>
+        </>)
+  }
+}
+
+
+function Gestion_Usuarios () {
   const [isOpenModal, openModal, closeModal] = usePopUp();
+  const [users, setUsers] = useState([])
+
+  const getUsers = async() =>{
+    const res = await axios.get("https://readme-store-api.herokuapp.com/api/users")
+    console.log(res)
+    const usersGetted = res.data.map(user =>{
+      return{
+        id:user._id,
+        name:user.name,
+        username:user.userName,
+        email:user.email,
+        role:user.rol
+      }
+    });      
+    setUsers(usersGetted)
+  }
+
+  useEffect(() => {
+    getUsers();
+    console.log(users)
+  },[]);
+  
+
+
+  const printUsers=()=> {
+    let row = "row-pair";
+    return <>
+    {users.map((user) => {
+        row = row === "row-odd" ? "row-pair" : "row-odd"
+        return <UsuarioTabla key ={user.id} user = {user} row = {row}/>
+    })}
+    </>
+  } 
 
   return (
     <div>
-        
-      <section class="section-1-container">
-        <div class="search-box">
-          <div class="search-row">
-            <p class="p-search">Buscar ID:</p>
-            <input type="text" class="search-input" placeholder="Buscar" />
-          </div>
-          <div class="search-row">
-            <p class="p-search">Nombre:</p>
-            <input type="text" class="search-input" placeholder="Nombre" />
-          </div>
-          <div class="search-row">
-            <p class="p-search">Usuario:</p>
-            <input type="text" class="search-input" placeholder="Usuario" />
-          </div>
-
-          <div class="search-box-buttons">
-            <button class="btn btn-search">Buscar</button>
-            <button class="btn btn-search">Actualizar</button>
-            <button onClick={openModal} className="btn btn-search">POPUP</button>
-            <PopUp closeModal={closeModal} isOpen={isOpenModal}/>
-
-          </div>
+      
+    <section className="gest-usu-section-1-container">
+      <div className="gest-usu-search-box">
+        <div className="gest-usu-search-row">
+          <p className="gest-usu-p-search">Buscar ID:</p>
+          <input type="text" className="gest-usu-search-input" placeholder="Buscar" />
+        </div>
+        <div className="gest-usu-search-row">
+          <p className="gest-usu-p-search">Nombre:</p>
+          <input type="text" className="gest-usu-search-input" placeholder="Nombre" />
+        </div>
+        <div className="gest-usu-search-row">
+          <p className="gest-usu-p-search">Usuario:</p>
+          <input type="text" className="gest-usu-search-input" placeholder="Usuario" />
         </div>
 
-        <div class="user-table">
-          <div class="row-head">Id Usuario</div>
-          <div class="row-head">Nombre</div>
-          <div class="row-head">Usuario</div>
-          <div class="row-head">Rol</div>
-          <div class="row-head">Estado</div>
+        <div className="gest-usu-search-box-buttons">
+          <button onClick={openModal} className="gest-usu-btn gest-usu-btn-search">Buscar</button>
+          <button className="gest-usu-btn gest-usu-btn-search">Actualizar</button>
+          <GestionUsuariospopup closeModal={closeModal} isOpen={isOpenModal} WasFound ={ true }/>
 
-          <div class="row-odd">Id Usuario</div>
-          <div class="row-odd">Nombre</div>
-          <div class="row-odd">Usuario</div>
-          <div class="row-odd">Rol</div>
-          <div class="row-odd">Estado</div>
-
-          <div class="row-pair">Id Usuario</div>
-          <div class="row-pair">Nombre</div>
-          <div class="row-pair">Usuario</div>
-          <div class="row-pair">Rol</div>
-          <div class="row-pair">Estado</div>
-
-          <div class="row-odd">Id Usuario</div>
-          <div class="row-odd">Nombre</div>
-          <div class="row-odd">Usuario</div>
-          <div class="row-odd">Rol</div>
-          <div class="row-odd">Estado</div>
-
-          <div class="row-pair">Id Usuario</div>
-          <div class="row-pair">Nombre</div>
-          <div class="row-pair">Usuario</div>
-          <div class="row-pair">Rol</div>
-          <div class="row-pair">Estado</div>
         </div>
-      </section>
-    </div>
-  );
+      </div>
+
+      <div className="gest-usu-user-table">
+        <div className="gest-usu-row-head">Id Usuario</div>
+        <div className="gest-usu-row-head">Nombre</div>
+        <div className="gest-usu-row-head">Usuario</div>
+        <div className="gest-usu-row-head">Email</div>
+        <div className="gest-usu-row-head">Rol</div>
+
+        {
+          printUsers()
+        }
+      </div>
+    </section>
+  </div>
+  )
 }
+
 
 export default Gestion_Usuarios;
