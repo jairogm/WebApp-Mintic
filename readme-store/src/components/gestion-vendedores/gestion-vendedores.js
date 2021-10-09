@@ -1,5 +1,6 @@
 import React from "react";
 import "./gestion-vendedores.css";
+import Modal from "../modal-vendedores/modal-vendedores";
 
 function GestionVendedores() {
   return (
@@ -33,6 +34,14 @@ function GestionVendedores() {
               class="gestion-style"
               type="number"
               placeholder="Número de celular"
+            />
+          </div>
+          <div class="gestion-input-container">
+            <label class="gestion-label-text">Correo electrònico: </label>
+            <input
+              class="gestion-style"
+              type="email"
+              placeholder="Correo electrònico"
             />
           </div>
           <div class="gestion-input-container">

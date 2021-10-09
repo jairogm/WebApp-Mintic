@@ -28,16 +28,19 @@ body {
   font-size: 25px;
 }
 
-.gestion-container {
+.text-modal-gestion {
+  color: white;
+}
+
+.gestion-container-modal {
+  position: absolute;
   width: 100vw;
   height: 100vh;
-  background-color: white;
+  background-color: rgba(0, 0, 0, 0.7);
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  background-image: url("./fondogestion.jpg");
-  background-repeat: no-repeat;
   background-size: 100vw;
 }
 
@@ -46,6 +49,7 @@ body {
   flex-direction: column;
   justify-content: space-around;
   height: 600px;
+  width: 100%;
   margin-top: 20px;
 }
 
