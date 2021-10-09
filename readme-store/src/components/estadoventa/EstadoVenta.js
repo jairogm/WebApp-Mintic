@@ -1,18 +1,35 @@
 import React, { Component } from 'react'
-import './css/EstadoVenta.css'
+import '../css/EstadoVenta.css'
 import axios from 'axios'
+
+
+class ProductoTabla extends Component {
+    render() {
+        return (
+            <>
+                    <div className={this.props.row}>{this.props.product.title}</div>
+                    <div className={this.props.row}>{this.props.product.amount}</div>
+                    <div className={this.props.row}>{this.props.product.price}</div>
+                    <div className={this.props.row}>{this.props.product.totalPrice}</div>
+               
+            </>)
+    }
+}
+
+
 
 export default class EstadoVenta extends Component {
 
     async componentDidMount(){
-        const res =  await axios.get("https://jsonplaceholder.typicode.com/users")
+        const res =  await axios.get("https://readme-store-api.herokuapp.com/api/products")
 
         const productsres = res.data.map(product =>{
-            return { 
-                name: product.name,
-                price: product.id,
-                amount: product.id,
-                totalPrice: product.id*product.id
+            return {
+                id : product._id,
+                title: product.title,
+                price: product.price,
+                amount: product.sku,
+                totalPrice: product.sku*product.price
             }
         })
 
@@ -21,20 +38,7 @@ export default class EstadoVenta extends Component {
 
     state = {
         statePurchase: 0,
-        products: [
-            {
-                name: 'mouse',
-                amount: 10,
-                price: 10000,
-                totalPrice: 21299999
-            },
-            {
-                name: 'mouse2',
-                amount: 10,
-                price: 10000,
-                totalPrice: 21299999
-            }
-        ],
+        products: [],
         subtotal: 0,
         shipping: 0,
         total: 0,
@@ -52,12 +56,7 @@ export default class EstadoVenta extends Component {
         return <>
         {this.state.products.map((product) => {
             row = row === "row-odd" ? "row-pair" : "row-odd"
-            return <>
-                <div className={row}>{product.name}</div>
-                <div className={row}>{product.amount}</div>
-                <div className={row}>{product.price}</div>
-                <div className={row}>{product.totalPrice}</div>
-            </>
+            return <ProductoTabla key ={product.id} product = {product} row = {row}/>
         })}
         </>
     }
