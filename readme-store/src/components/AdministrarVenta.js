@@ -1,6 +1,6 @@
 import React from 'react'
-
-function administrar_venta() {
+import "./css/administrar-venta.css"
+function AdministrarVenta() {
     return (
         <div>
         
@@ -58,10 +58,41 @@ function administrar_venta() {
       </div>
     </div>
 
+    <div class="form-datos-envio">
+      <h2>Datos de envio</h2>
+      <form>
+        <label>Nombre del Cliente: </label>
+        <input type="text" />
+       
+        <label> Direccion: </label>
+        <input type="text" />
+       
+ 
+        <label>Email: </label>
+        <input type="email" required />
+  
+        <label>Telefono: </label>
+        <input type="tel" required />
+      </form>
+    </div>
+
+    <div class="buttons">
+      <div class="drop-btn">
+        <form>
+          <label for="metodo-pago">Asignar venta:</label>
+          <select name="metodo-pago" id="metodo-pago">
+            <option value="combobox">ComboBox</option>
+          </select>
+        </form>
+      </div>
+
+      <button>Guardar</button>
+    
 
 
+        </div>
         </div>
     )
 }
 
-export default administrar_venta
+export default AdministrarVenta;

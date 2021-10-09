@@ -1,9 +1,9 @@
-import HeaderComponent from "./components/HeaderComponent";
+import HeaderComponent from "./components/headerHome/HeaderComponent";
 import ContentComponent from "./components/ContentComponent";
-import FooterComponent from "./components/FooterComponent";
+import FooterComponent from "./components/footer/FooterComponent";
 import GestionUsuarios from "./components/Gestion_Usuarios";
 import EstadoVenta from "./components/Estado_Venta";
-
+import AdministrarVenta from "./components/AdministrarVenta";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 import "./components/css/HeaderComponent.css";
@@ -25,6 +25,9 @@ function App() {
             </Route>
             <Route path="/estadoventa">
               <EstadoVenta/>
+            </Route>
+            <Route path="/administrarventa">
+                <AdministrarVenta/>
             </Route>
           </Switch>
       </Router>
