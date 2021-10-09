@@ -1,8 +1,8 @@
-import BuscarVenta from "./BuscarVenta";
-import HeaderSimple from "./HeaderSimple";
-import FooterComponent from "./FooterComponent";
+import BuscarVenta from "../buscarVenta/BuscarVenta";
+import HeaderSimple from "../headerSimple/HeaderSimple";
+import FooterComponent from "../footer/FooterComponent";
 
-import "./css/Vendedores.css"
+import "../css/Vendedores.css"
 
 const Vendedores = () => {
     return (<>

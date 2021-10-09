@@ -1,4 +1,4 @@
-import "./css/HeaderSimple.css"
+import "../css/HeaderSimple.css"
 
 const HeaderSimple = () => {
     return (<>

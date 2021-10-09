@@ -1,3 +1,4 @@
+import Vendedores from "./components/vendedores/Vendedores";
 import HeaderComponent from "./components/headerHome/HeaderComponent";
 import ContentComponent from "./components/ContentComponent";
 import FooterComponent from "./components/footer/FooterComponent";
@@ -28,6 +29,9 @@ function App() {
             </Route>
             <Route path="/administrarventa">
                 <AdministrarVenta/>
+            </Route>
+            <Route path="/vendedores">
+                <Vendedores/>
             </Route>
           </Switch>
       </Router>
