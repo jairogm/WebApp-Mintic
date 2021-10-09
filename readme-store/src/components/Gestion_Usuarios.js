@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import './css/Gestion_Usuarios.css'
 
-export default class Gestion_Ususarios extends Component {
+export default class GestionUsusarios extends Component {
     render() {
         return (
             <div>
