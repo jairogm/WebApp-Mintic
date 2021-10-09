@@ -1,4 +1,4 @@
-import BuscarVenta from "../buscarVenta/BuscarVenta";
+import BuscarVenta from "./buscarVenta/BuscarVenta";
 import HeaderSimple from "../headerSimple/HeaderSimple";
 import FooterComponent from "../footer/FooterComponent";
 
