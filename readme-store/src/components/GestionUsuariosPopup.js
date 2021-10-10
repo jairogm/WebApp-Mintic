@@ -1,63 +1,90 @@
-import React, { Component } from 'react'
+import React, { Component, useState,useEffect } from 'react'
 import './css/Gestion_Usuarios_popup.css'
+import axios from 'axios';
 
 
-const GestionUsuariosPopup = ({ closeModal, isOpen, WasFound }) => {
+const GestionUsuariosPopup = ({ isOpen, WasFound, close, data }) => {
     const handleModalDialogClick = (e) => {
         e.stopPropagation();
     };
 
+    const [userRol,setuserRol] = useState("")
+    const [selectedRol,setSelectedRol] = useState("")
+
+    useEffect(() => {
+        setuserRol(data.rol)
+    },[isOpen])
+
+    const closeSave = async() => {
+        if(selectedRol !== userRol) {
+            await axios.patch("https://readme-store-api.herokuapp.com/api/users/"+data._id,{
+                rol:selectedRol
+            })   
+        }
+        close();
+    }
+
     return (
         <>
-            <div className={`modal-back ${(isOpen && !WasFound) && "modal-open"}`} onClick={closeModal}>
-                <div className="modal__dialog" onClick={handleModalDialogClick}>
-                    <div className="titleCloseBtn">
-                        <button onClick={closeModal}>X</button>
+            <div className={`gest-usu-pop-modal-back ${(isOpen && !WasFound) && "gest-usu-pop-modal-open"}`} onClick={close}>
+                <div className="gest-usu-pop-modal__dialog notFound" onClick={handleModalDialogClick}>
+                    <div className="gest-usu-pop-titleCloseBtn">
+                        <button onClick={close}>X</button>
                     </div>
-                    <div className="modal-content">
+                    <div className="gest-usu-pop-modal-content">
                         Usuario No Encontrado
                     </div>
                 </div>
             </div>
-            <div className={`modal-back ${(isOpen && WasFound) && "modal-open"}`} onClick={closeModal}>
-                <div className="gest-usu-modal__dialog" onClick={handleModalDialogClick}>
-                    <div className="update-box">
-                        <div className="update-label">
+            <div className={`gest-usu-pop-modal-back ${(isOpen && WasFound) && "gest-usu-pop-modal-open"}`} onClick={close}>
+                <div className="gest-usu-pop-modal__dialog" onClick={handleModalDialogClick}>
+                    <div className="gest-usu-pop-update-box">
+                        <div className="gest-usu-pop-update-label">
                             <label >Actualizar Usuarios</label>
-                            <div className="titleCloseBtn">
-                                <button onClick={closeModal}>X</button>
+                            <div className="gest-usu-pop-titleCloseBtn">
+                                <button onClick={close}>X</button>
                             </div>
                         </div>
-                        <div className="update-row">
-                            <p className="p-update">ID Usuario:</p>
-                            <label className="update-data">127821736</label>
+                        <div className="gest-usu-pop-update-row">
+                            <p className="gest-usu-pop-p-update">ID Usuario:</p>
+                            <label className="gest-usu-pop-update-data">{data._id}</label>
                         </div>
-                        <div className="update-row">
-                            <p className="p-update">Nombre:</p>
-                            <label className="update-data">Kevin</label>
+                        <div className="gest-usu-pop-update-row">
+                            <p className="gest-usu-pop-p-update">Nombre:</p>
+                            <label className="gest-usu-pop-update-data">{data.name}</label>
                         </div>
-                        <div className="update-row">
-                            <p className="p-update">Usuario:</p>
-                            <label className="update-data">KevinDeBruyne17</label>
+                        <div className="gest-usu-pop-update-row">
+                            <p className="gest-usu-pop-p-update">Usuario:</p>
+                            <label className="gest-usu-pop-update-data">{data.userName}</label>
                         </div>
-                        <div className="update-row">
-                            <p className="p-update">Rol:</p>
-                            <select className="update-data select" >
-                                <option selected >Administrador</option>
-                                <option>Vendedor</option>
-                            </select>
+                        <div className="gest-usu-pop-update-row">
+                            <p className="gest-usu-pop-p-update">Rol:</p>
+                            
+                                {
+                                    <select className="gest-usu-pop-update-data gest-usu-pop-select" onChange={e =>setSelectedRol(e.target.value)}>
+                                    <option defaultValue>{userRol}</option>
+                                    {
+                                        ["Seller","Admin"].map(rol=>{
+                                            if(rol !== userRol){
+                                                return<option >{rol}</option>
+                                            }
+                                        })
+                                    }
+                                    </select>
+                                }
+                            
                         </div>
-                        <div className="update-row">
-                            <p className="p-update">Estado:</p>
-                            <select className="update-data select" >
-                                <option selected >Activo</option>
+                        <div className="gest-usu-pop-update-row">
+                            <p className="gest-usu-pop-p-update">Estado:</p>
+                            <select className="gest-usu-pop-update-data gest-usu-pop-select" >
+                                <option defaultValue >Activo</option>
                                 <option>Inactivo</option>
                             </select>
                         </div>
-                        <div className="update-box-buttons">
-                            <button className="btn btn-update">Guardar Cambios</button>
+                        <div className="gest-usu-pop-update-box-buttons">
+                            <button className="gest-usu-pop-btn gest-usu-pop-btn-update" onClick={closeSave}>Guardar Cambios</button>
                         </div>
-                        <label className="update-label"></label>
+                        <label className="gest-usu-pop-update-label"></label>
                     </div>
                 </div>
             </div>
