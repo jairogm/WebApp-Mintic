@@ -93,7 +93,7 @@ function Gestion_Usuarios () {
   }
 
   return (
-    <div>
+    <div className="gest-usu-body">
       
     <section className="gest-usu-section-1-container">
       <div className="gest-usu-search-box">
