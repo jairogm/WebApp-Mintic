@@ -106,7 +106,7 @@ body {
 
 .gest-usu-user-table{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
     width: 75%;
     margin: auto;
     grid-auto-flow:dense;

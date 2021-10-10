@@ -1,27 +1,69 @@
-import React, { Component, useState,useEffect } from 'react'
+import React, { Component, useState, useEffect } from 'react'
 import './css/Gestion_Usuarios_popup.css'
 import axios from 'axios';
 
 
-const GestionUsuariosPopup = ({ isOpen, WasFound, close, data }) => {
+const GestionUsuariosPopup = ({ isOpen, WasFound, close, data, isModidy }) => {
     const handleModalDialogClick = (e) => {
         e.stopPropagation();
     };
 
-    const [userRol,setuserRol] = useState("")
-    const [selectedRol,setSelectedRol] = useState("")
+    const [userRol, setuserRol] = useState("")
+    const [userStatus, setuserStatus] = useState("")
+    const [selectedRol, setSelectedRol] = useState()
+    const [selectedStatus, setSelectedStatus] = useState("")
 
     useEffect(() => {
         setuserRol(data.rol)
-    },[isOpen])
+        setuserStatus(data.status)
+        setSelectedRol(data.rol)
+        setSelectedStatus(data.status)
+    }, [isOpen])
 
-    const closeSave = async() => {
-        if(selectedRol !== userRol) {
-            await axios.patch("https://readme-store-api.herokuapp.com/api/users/"+data._id,{
-                rol:selectedRol
-            })   
+
+    const closeSave = async () => {
+        let filter ={}
+        filter.rol = selectedRol
+        filter.status = selectedStatus
+
+        if (selectedRol !== userRol || selectedStatus !== userStatus) {
+            await axios.patch("https://readme-store-api.herokuapp.com/api/users/" + data._id, filter)
         }
         close();
+    }
+
+    const printRols = () => {
+        if (isModidy) {
+            return <select className="gest-usu-pop-update-data gest-usu-pop-select" onChange={e => setSelectedRol(e.target.value)}>
+                <option defaultValue>{userRol}</option>
+                {
+                    ["Seller", "Admin"].map(rol => {
+                        if (rol !== userRol) {
+                            return <option key={rol}>{rol}</option>
+                        }
+                    })
+                }
+            </select>
+        } else {
+            return <label className="gest-usu-pop-update-data" style={{ display: 'inline' }}>{userRol}</label>
+        }
+    }
+
+    const printStatus = () => {
+        if (isModidy) {
+            return <select className="gest-usu-pop-update-data gest-usu-pop-select" onChange={e=>setSelectedStatus(e.target.value)}>
+                <option defaultValue >{userStatus}</option>
+                {
+                    ["enabled", "disabled"].map(status => {
+                        if (status !== userStatus) {
+                            return <option key={status}>{status}</option>
+                        }
+                    })
+                }
+            </select>
+        } else {
+            return <label className="gest-usu-pop-update-data" style={{ display: 'inline' }}>{userStatus}</label>
+        }
     }
 
     return (
@@ -59,27 +101,17 @@ const GestionUsuariosPopup = ({ isOpen, WasFound, close, data }) => {
                         </div>
                         <div className="gest-usu-pop-update-row">
                             <p className="gest-usu-pop-p-update">Rol:</p>
-                            
-                                {
-                                    <select className="gest-usu-pop-update-data gest-usu-pop-select" onChange={e =>setSelectedRol(e.target.value)}>
-                                    <option defaultValue>{userRol}</option>
-                                    {
-                                        ["Seller","Admin"].map(rol=>{
-                                            if(rol !== userRol){
-                                                return<option >{rol}</option>
-                                            }
-                                        })
-                                    }
-                                    </select>
-                                }
-                            
+
+                            {
+                                printRols()
+                            }
+
                         </div>
                         <div className="gest-usu-pop-update-row">
                             <p className="gest-usu-pop-p-update">Estado:</p>
-                            <select className="gest-usu-pop-update-data gest-usu-pop-select" >
-                                <option defaultValue >Activo</option>
-                                <option>Inactivo</option>
-                            </select>
+                            {
+                                printStatus()
+                            }
                         </div>
                         <div className="gest-usu-pop-update-box-buttons">
                             <button className="gest-usu-pop-btn gest-usu-pop-btn-update" onClick={closeSave}>Guardar Cambios</button>

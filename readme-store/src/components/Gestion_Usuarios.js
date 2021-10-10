@@ -14,6 +14,7 @@ class UsuarioTabla extends Component {
           <div className={this.props.row}>{this.props.user.username}</div>
           <div className={this.props.row}>{this.props.user.email}</div>
           <div className={this.props.row}>{this.props.user.role}</div>
+          <div className={this.props.row}>{this.props.user.status}</div>
         </>)
   }
 }
@@ -26,18 +27,19 @@ function Gestion_Usuarios () {
   const [NameSearch,setNameSearch] = useState("")
   const [UsernameSearch,setUsernameSearch] = useState("")
   const [WasFound,setWasFound] = useState(true)
+  const [isModidy,setIsModidy] = useState(true)
   const [userData,setUserData] = useState({})
 
   const getUsers = async() =>{
     const res = await axios.get("https://readme-store-api.herokuapp.com/api/users")
-    console.log(res)
     const usersGetted = res.data.map(user =>{
       return{
         id:user._id,
         name:user.name,
         username:user.userName,
         email:user.email,
-        role:user.rol
+        role:user.rol,
+        status:user.status
       }
     });      
     setUsers(usersGetted)
@@ -87,8 +89,6 @@ function Gestion_Usuarios () {
       }
 
     }
-    
-    console.log(res)
     openModal()
   }
 
@@ -111,9 +111,9 @@ function Gestion_Usuarios () {
         </div>
 
         <div className="gest-usu-search-box-buttons">
-          <button onClick={()=>Search()} className="gest-usu-btn gest-usu-btn-search">Buscar</button>
-          <button className="gest-usu-btn gest-usu-btn-search">Actualizar</button>
-          <GestionUsuariospopup isOpen={isOpenModal} WasFound ={ WasFound } close={close} data = {userData}/>
+          <button onClick={()=>{Search(); setIsModidy(false)}} className="gest-usu-btn gest-usu-btn-search">Buscar</button>
+          <button onClick={()=>{Search(); setIsModidy(true)}} className="gest-usu-btn gest-usu-btn-search">Actualizar</button>
+          <GestionUsuariospopup isOpen={isOpenModal} WasFound ={ WasFound } close={close} data = {userData} isModidy={isModidy}/>
 
         </div>
       </div>
@@ -124,6 +124,8 @@ function Gestion_Usuarios () {
         <div className="gest-usu-row-head">Usuario</div>
         <div className="gest-usu-row-head">Email</div>
         <div className="gest-usu-row-head">Rol</div>
+        <div className="gest-usu-row-head">Estado</div>
+
 
         {
           printUsers()
