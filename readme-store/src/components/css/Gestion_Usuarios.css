@@ -73,17 +73,108 @@ body {
     color: #000;
 }
 
-.h2-logo{
+.gest-usu-h2-logo{
     text-align: center;
     font-size: 40px;
 }
 
+<<<<<<< HEAD
 
 .user-table {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     width: 60%;
     margin: auto;
+=======
+.gest-usu-btn{
+    display: flex;
+    text-transform: uppercase;
+    border-radius: 5px;
+    border: 2px solid transparent;
+    transition: all .35s ease;
+    background-color: var(--fourth-color);
+    margin: auto;
+}
+.gest-usu-btn:hover{
+    background-color: #ECC939
+
+}
+
+.gest-usu-btn:focus{
+    background-color: #fff;
+    border: #CEB035 solid 5px;
+}
+
+.gest-usu-btn-icon{
+    margin: auto;
+    width: 3rem;
+}
+
+
+.gest-usu-btn-text{
+    font-size: 0.8125rem;
+    font-weight: 700;
+    letter-spacing: .5px;
+    padding: 0 2rem;
+}
+
+
+.gest-usu-container-header{
+    display: flex;
+    flex-direction: row;
+}
+
+.gest-usu-icon{
+    padding-right: 5px;
+}
+
+.gest-usu-p-search{
+    display: inline-block;
+}
+
+.gest-usu-section-1-container{
+    display: flex;
+    margin: 2rem auto;
+    justify-content: space-between;
+}
+
+.gest-usu-body{
+    display: flex;
+}
+
+.gest-usu-search-box{
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    border: 3px solid black;
+}
+
+.gest-usu-search-row{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.gest-usu-search-input{
+    height: 30px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  margin-top: 5px;
+  background-color: transparent;
+  border-bottom: 1px solid wheat;
+  font-size: 16px;
+}
+
+.gest-usu-btn-search{
+    padding: 10px;
+    margin:10px auto;
+}
+
+.gest-usu-user-table{
+    display: grid;
+    grid-template-columns: repeat(6,auto);
+    width: 75%;
+>>>>>>> 44ce80b06b86af5ae3ca783ee9c31db342628b4c
     grid-auto-flow:dense;
     border: 4px  black;
     justify-content: flex-start;
@@ -98,20 +189,34 @@ body {
     left: 400px
 }
 
+<<<<<<< HEAD
 .row-head{
     background-color:white;
+=======
+.gest-usu-row-head{
+    background-color: rgb(153, 132, 128);
+>>>>>>> 44ce80b06b86af5ae3ca783ee9c31db342628b4c
     padding: 15px;
     border-right: 2px solid black;
 }
 
+<<<<<<< HEAD
 .row-pair{
     background-color: white;
+=======
+.gest-usu-row-pair{
+    background-color: #DED0CE;
+>>>>>>> 44ce80b06b86af5ae3ca783ee9c31db342628b4c
     padding: 15px;
     border-right: 2px solid black;
 }
 
+<<<<<<< HEAD
 .row-odd{
     background-color: white;
+=======
+.gest-usu-row-odd{
+>>>>>>> 44ce80b06b86af5ae3ca783ee9c31db342628b4c
     padding: 15px;
     border-right: 2px solid black;
 }

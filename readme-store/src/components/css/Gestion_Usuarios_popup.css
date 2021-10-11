@@ -17,32 +17,31 @@ body {
     --fiveth-color: #45230C;
   }
 
-.update-box{
+.gest-usu-pop-update-box{
     display: flex;
     border: 1px solid #000;
     width: 25rem;
     flex-direction: column;
-    margin: 30px;
 }
 
-.update-label{
+.gest-usu-pop-update-label{
     background-color: var(--second-color);
     padding: 10px;
     color: #fff;
 }
 
-.p-update{
+.gest-usu-pop-p-update{
     display: inline-block;
     margin:0;
 }
 
-.update-row{
+.gest-usu-pop-update-row{
     display: flex;
     justify-content:space-between;
     padding:10px;
 }
 
-.select{
+.gest-usu-pop-select{
     display: inline-block;
     padding: 7px;
     border: 2px solid var(--fourth-color);
@@ -50,7 +49,7 @@ body {
     transition: all .35s ease;
 }
 
-.btn{
+.gest-usu-pop-btn{
     display: flex;
     text-transform: uppercase;
     border-radius: 5px;
@@ -60,20 +59,73 @@ body {
     margin: auto;
 }
 
-.btn:hover{
+.gest-usu-pop-btn:hover{
     background-color: #ECC939
 
 }
 
-.btn:focus{
+.gest-usu-pop-btn:focus{
     background-color: #fff;
     border: #CEB035 solid 5px;
 }
 
-.btn-update{
+.gest-usu-pop-btn-update{
     padding: 10px;
     margin:10px auto;
 }
 
 
-
+  .gest-usu-pop-modal-back {
+    background-color: rgba(0, 0, 0, 0.404);
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    /* right: 0; */
+    z-index: 9999;
+    display: none;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  
+  .gest-usu-pop-modal__dialog {
+    height: auto;
+    border-radius: 12px;
+    background-color:#fff ;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    display: flex;
+    flex-direction: column;
+  }
+  .notFound {
+    padding: 12px;
+  }
+  
+  
+  .gest-usu-pop-modal-open {
+    display: grid;
+  }
+  .gest-usu-pop-modal-title {
+    font-size: 20px;
+    font-weight: 100;
+  }
+ 
+  
+  .gest-usu-pop-titleCloseBtn {
+    float: right;
+    width: 20px;
+  }
+  
+  
+  .gest-usu-pop-titleCloseBtn button {
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+  }
+  
+  .gest-usu-pop-titleCloseBtn button:hover {
+    background-color: none;
+  }
+  
