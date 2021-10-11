@@ -4,12 +4,6 @@ import LogoM from '../login-form/img/ReadMeLogo.png'
 import './css/stylelogin.css'
 
 
-<<<<<<< HEAD
-=======
-
-
-const clientId= "274458045197-0e7v4i3qujmmv24q3dirtkvhvab2usa0.apps.googleusercontent.com";
->>>>>>> 44ce80b06b86af5ae3ca783ee9c31db342628b4c
 
 function Login() {
     const onSuccess = (res) => {
@@ -32,13 +26,8 @@ return (
         <GoogleLogin
         clientId="274458045197-0e7v4i3qujmmv24q3dirtkvhvab2usa0.apps.googleusercontent.com"
         buttonText="Inicio de Sesión"
-<<<<<<< HEAD
         onSuccess={onSuccess}
         onFailure={onFailure}
-=======
-        //onSuccess={responseGoogle}
-        //onFailure={responseGoogle}
->>>>>>> 44ce80b06b86af5ae3ca783ee9c31db342628b4c
         cookiePolicy={'single_host_origin'}
         style={{ marginTop: '100px'}}
         isSignedIn={true}

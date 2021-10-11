@@ -7,8 +7,8 @@ import "../css/vendedores.css"
 const Vendedores = () => {
     return (<>
         <HeaderSimple/>
-        <section className="container">
-            <section className="side-menu">
+        <section class="container">
+            <section class="side-menu">
                 <a href="">Información Vendedor</a>
                 <a href="">Registrar Venta</a>
                 <a href="">Ventas del Mes</a>
