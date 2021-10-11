@@ -18,101 +18,109 @@ header{
 
     margin-bottom: 2rem;
 }
-
-.h2-logo{
-    text-align: center;
-    font-size: 40px;
-}
-
-
-.container-header {
-    display: flex;
-    justify-content: space-around;
-}
-.btn{
-    display: flex;
-    text-transform: uppercase;
-    border-radius: 5px;
-    border: 2px solid transparent;
-    transition: all .35s ease;
-    background-color: var(--fourth-color);
-}
-
-.btn-icon{
-    margin: auto;
-    width: 3rem;
-}
-
-
-.btn-text{
-    font-size: 0.8125rem;
-    font-weight: 700;
-    letter-spacing: .5px;
-    padding: .75rem 2rem;
-}
-
-table {
-  margin: 0 auto;
-  border-collapse: collapse;
-  width: 70%;
-}
-
-td,
-th {
-  border: 1px solid #dddddd;
-  text-align: center;
-  padding: 8px;
-}
-
-tr:nth-child(even) {
-  background-color: #dddddd;
-}
-
-
-.total-container{
-    display: flex;
-    flex-direction: column;
-    justify-items: flex-end;
-    align-items: flex-end;
-    margin:0 auto;
-    width: 40%;
-}
-
-.total-detail{
-    margin: 0 3rem;
-}
-.form-datos-envio{
-    margin: 0 auto;
-    width: 50%;
-}
-
-.form-datos-envio input {
-    width: 20%;
-}
-
-.form-datos-envio h2 {
-    font-size: 40px;
-}
-.form-datos-envio  form label {
-    display: flex;
-    flex-direction: column;
-}
-
-.form-datos-envio form label {
-    width: 50%;
-}
-.buttons {
-    display: flex;
-    justify-content: space-around;
-    margin: 70px auto;
-    width: 80%;
-}
-
-.buttons button{
-    width: 120px;
-    padding: 5px;
-    background-color: var(--first-color);
+.form-datos-envio {
+    width: 500px;
+    height: 500px;
+    background:#CEB035;
     border: none;
-    color: var(--font-color);
-    border-radius: 4px;
+    position: relative;
+    padding: 50px 50px;
+    top :20px;
 }
+.form-datos-envio h2{
+    margin: 0;
+    padding: 10px 0 20px;
+    text-align: center;
+    font-size: 25px;
+}
+.form-datos-envio label {
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+    display: block;
+}
+.form-datos-envio input{
+        width: 100%;
+        margin-bottom: 13px;
+}
+.form-datos-envio input[type="text"],
+input[type="email"], input[type="tel"]{
+    border: none;
+    border-bottom: 1px solid #fff;
+    background: transparent;
+    outline: none;
+    height: 40px;
+    color: #fff;
+    font-size: 16px;
+}
+.form-datos-envio option {
+   display: block;
+   height: 40px;
+   font-size: 16px;
+}
+.form-datos-envio button {
+    background-color: var(--first-color);
+    color: white;
+    border-radius: 80px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    width: 150px;
+    height: 40px;
+    margin-right: 10px;
+    font-size: 13px;
+}
+
+.form-datos-envio button {
+    display: block;
+    justify-content: space-around;
+    width: 100%;
+    margin-top: 2px;
+}
+.form-datos-envio button:hoover {
+    cursor: pointer;
+    background: #ffc107;
+    color: #000;
+}
+.tabla-productos {
+   width: 100%;
+   margin-top: 20px;
+   display: flex;
+}
+.tabla-productos table {
+    position:absolute;
+    background-color: #fff;
+    width: 75%;
+  height: 550px;
+  padding: 10px;
+  left: 600px
+}
+
+.total-container {
+    position:absolute;
+    background-color:#45230c;
+    top: 50%;
+    left: 80%;
+    width: 300px;
+    height: 180px;
+    box-sizing: border-box;
+    padding: 30px 30px;
+    color: #fff;
+}
+.total-detail h4{
+    margin: 0;
+    padding: 0;
+    font-weight:lighter;
+    font-size: 16px;
+    width: 100%;
+    margin-bottom: 13px;
+}
+.total-detail label {
+    margin: 0;
+    padding: 0;
+    font-weight:lighter;
+    font-size: 16px;
+    width: 100%;
+    margin-bottom: 13px;
+}
+

@@ -1,4 +1,4 @@
-import Vendedores from "./components/vendedores/Vendedores";
+import Vendedores from "./components/modulovendedores/Vendedores";
 import HeaderComponent from "./components/headerHome/HeaderComponent";
 import ContentComponent from "./components/ContentComponent";
 import FooterComponent from "./components/footer/FooterComponent";
@@ -6,7 +6,7 @@ import GestionUsuarios from "./components/Gestion_Usuarios";
 import EstadoVenta from "./components/Estado_Venta";
 import AdministrarVenta from "./components/AdministrarVenta";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import Login from "./components/login-form/login";
+import Login from "./components/login-form/Login";
 import Logout from "./components/login-form/Logout";
 
 import "./components/css/HeaderComponent.css";

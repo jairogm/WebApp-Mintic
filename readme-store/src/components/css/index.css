@@ -1,5 +1,6 @@
 * {
     box-sizing: border-box;
+    
 }
 
 :root {
@@ -15,13 +16,14 @@ body {
     padding: 0px;
     margin: 0px;
     font-family: Arial, Helvetica, sans-serif;
+    background: white;
 }
 
 
 /* <!-- NAVBAR --> */
 
 .navbar {
-    background-color: var(--second-color);
+    background-color: var(--first-color);
     min-height: 30px;
     margin-bottom: 1vh;
     display: flex;
@@ -33,7 +35,7 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    background-color: var(--second-color);
+    background-color: var(--first-color);
 }
 
 .navbar-logo>a {
@@ -51,7 +53,7 @@ body {
     text-decoration: none;
     padding: 10px 10px 0px;
     text-decoration: none;
-    font-size: 1.3em;
+    font-size: 15px;
 }
 
 .navbar-buttons {

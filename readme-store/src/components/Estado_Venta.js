@@ -7,6 +7,7 @@ export default class EstadoVenta extends Component {
             <div>
                 <section className="section-1-container">
                     <div className="shop-data">
+                        <br/>
                         <p>Pedido #234123</p>
                         <p>Fecha: 20/11/2020</p>
                     </div>

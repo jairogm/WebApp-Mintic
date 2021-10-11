@@ -1,9 +1,13 @@
+import React from "react";
+import Logo from '../login-form/img/ReadMeLogo3.png'
+import '../css/HeaderComponent.css'
 
 const HeaderComponent = () => {
-    return (<nav id='navbar' className="navbar">
+    return (
+    <nav id='navbar' className="navbar">
         <div className="navbar-logo">
-            <a id='navbar-menu' href='!#' className='icon'>
-                README STORE
+            <a id='navbar-logo' href='!#' className='icon'>
+                <img src={Logo} alt="Logo" href='!#' />
             </a>
         </div>
         <div className='navbar-links'>

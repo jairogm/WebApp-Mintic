@@ -2,7 +2,7 @@ import BuscarVenta from "./buscarVenta/BuscarVenta";
 import HeaderSimple from "../headerSimple/HeaderSimple";
 import FooterComponent from "../footer/FooterComponent";
 
-import "../css/Vendedores.css"
+import "../css/vendedores.css"
 
 const Vendedores = () => {
     return (<>

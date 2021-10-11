@@ -1,5 +1,8 @@
+
+
+
 .navbar {
-    background-color: var(--second-color);
+    background-color: var(--first-color);
     min-height: 30px;
     margin-bottom: 1vh;
     display: flex;
@@ -11,17 +14,13 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
-    background-color: var(--second-color);
+    background-color: var(--first-color);
 }
 
-.navbar-logo>a {
-    display: block;
-    color: white;
-    text-decoration: none;
-    padding: 5px 30px;
-    text-decoration: none;
-    font-size: 1.9em;
+.navbar-logo img{
+    height: 45px;
 }
+
 
 .navbar-links>a {
     display: block;
@@ -29,8 +28,9 @@
     text-decoration: none;
     padding: 10px 10px 0px;
     text-decoration: none;
-    font-size: 1.3em;
-}
+    font-size: 15px;
+    text-align:center;
+    }
 
 .navbar-buttons {
     padding: 5px 10px 0px;
