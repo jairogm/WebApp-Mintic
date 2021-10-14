@@ -6,8 +6,14 @@ import './css/stylelogin.css'
 
 
 function Login() {
-    const onSuccess = (res) => {
-        console.log('[Inicio de sesión exitoso!] currentUser:', res.profileObj);
+    const onSuccess = (googleUser) => {
+        debugger;/*Segun tutorial aqui va el enlace con el back*/
+        console.log('[Inicio de sesión exitoso!] currentUser:', googleUser);
+        isSignedIn(true);
+        const profile = googleUser.getBasicProfile();
+        setName(profile.getName());
+        setEmail(profile.getEmail());
+        setImageUrl(profile.getImageUrl())
     };
 
 const onFailure = (res) => {
@@ -31,7 +37,7 @@ return (
         cookiePolicy={'single_host_origin'}
         style={{ marginTop: '100px'}}
         isSignedIn={true}
-        />,
+        />
     </div>
 
     <div class="footer-container">
