@@ -1,7 +1,6 @@
 import '../components/css/index.css'
 import '../components/css/HeaderComponent.css'
 
-
 const ContentComponent = () => {
     return (<>
         <section className="categories">

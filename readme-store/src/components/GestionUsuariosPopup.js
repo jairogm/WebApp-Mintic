@@ -25,9 +25,11 @@ const GestionUsuariosPopup = ({ isOpen, WasFound, close, data, isModidy }) => {
         let filter ={}
         filter.rol = selectedRol
         filter.status = selectedStatus
+        console.log(filter)
 
         if (selectedRol !== userRol || selectedStatus !== userStatus) {
-            await axios.patch("https://readme-store-api.herokuapp.com/api/users/" + data._id, filter)
+           const res =  await axios.patch("https://readme-store-api.herokuapp.com/api/users/" + data._id, filter)
+            console.log(res)
         }
         close();
     }
