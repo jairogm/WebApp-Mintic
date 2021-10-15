@@ -19,7 +19,7 @@ function Login() {
 
         var config = {
             method: 'post',
-            url: 'http://localhost:3001/api/users/auth',
+            url: 'https://readme-store-api.herokuapp.com/api/users/auth',
             headers: {
                 'Content-Type': 'application/json'
             },
