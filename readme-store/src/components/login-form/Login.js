@@ -1,6 +1,7 @@
 import React from "react";
 import GoogleLogin from 'react-google-login';
 import LogoM from '../login-form/img/ReadMeLogo.png'
+import axios from 'axios';
 import './css/stylelogin.css'
 
 
@@ -9,31 +10,22 @@ function Login() {
         const profile = googleUser.getBasicProfile();
         const name = profile.getName()
         const email = profile.getEmail()
-        var axios = require('axios');
+        var jwt = require('jsonwebtoken')
+        const headers = {
+            'Content-Type': 'application/json',
+            "Access-Control-Allow-Origin": "*",
+        }
         var data = JSON.stringify({
             "name": name,
             "email": email,
+            "username": email,
             "withGoogle": true,
             "status": "enabled"
         });
-
-        var config = {
-            method: 'post',
-            url: 'https://readme-store-api.herokuapp.com/api/users/auth',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            data: data
-        };
-
-        axios(config)
-            .then(function (response) {
-                console.log(JSON.stringify(response.data));
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
-
+        axios.post('https://readme-store-api.herokuapp.com/api/users/auth', data = data, { headers: headers }).then((response) => {
+            let tokeninfo = jwt.decode(response.data.token, process.env.JWT_SECRET)
+            console.log(tokeninfo);
+        })
     };
 
     const onFailure = (res) => {
