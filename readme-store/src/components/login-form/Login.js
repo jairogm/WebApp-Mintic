@@ -41,7 +41,7 @@ function Login() {
     };
 
     return (
-        <div>
+        <div className="body">
             <div className="login-box">
                 <img src={LogoM} alt="Logo" href='!#' />
                 <h1> Bienvenido!</h1>
