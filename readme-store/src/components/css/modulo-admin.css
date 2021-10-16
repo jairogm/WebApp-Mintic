@@ -73,7 +73,7 @@ tr:nth-child(even) {
     flex-direction: column;
 }
 
-.side-menu>a {
+.side-menu>button {
     text-decoration: none;
     color: var(--font-color);
     background-color: var(--second-color);
@@ -83,9 +83,7 @@ tr:nth-child(even) {
     padding: 5px;
 }
 
-.side-menu button {
-    margin: 20px;
-}
+
 
 .form {
     border: 3px solid var(--second-color);
