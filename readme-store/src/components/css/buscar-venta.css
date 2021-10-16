@@ -1,0 +1,94 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --first-color: #3e1000;
+  --second-color: #5a1a05;
+  --third-color: #653719;
+  --fourth-color: #ceb035;
+  --fiveth-color: #45230c;
+  --font-color: #eef4ed;
+}
+
+body {
+  padding: 0px;
+  margin: 0px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+
+.busc-venta-form {
+  border: 3px solid var(--second-color);
+  margin: auto;
+  padding: 1rem;
+  min-width: 50%;
+}
+.busc-venta-form-title {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 10px 10px;
+}
+
+.busc-venta-form form .busc-venta-input {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 1.3rem;
+  margin-bottom:2rem;
+  width: 100%;
+}
+.busc-venta-form > form > .busc-venta-input > input {
+  font-size: 1rem;
+  border: 1px solid var(--second-color);
+  border-radius: 5px;
+  padding: 0.5rem 0.5rem 0.5rem;
+  flex-wrap: wrap;
+  flex-shrink: 1;
+}
+.busc-venta-form > form > .busc-venta-input > label {
+  font-size: 1rem;
+  flex-wrap: wrap;
+  flex-shrink: 1;
+}
+::placeholder {
+  color: #1f1f1f;
+}
+.busc-venta-form-button {
+  color: var(--font-color);
+  justify-content: center;
+  text-align: center;
+}
+.busc-venta-form-button > input {
+  color: var(--font-color);
+  padding: 5px 10px;
+  border: 1px solid var(--second-color);
+  border-radius: 10px;
+  font-size: 1.5rem;
+  background-color: var(--second-color);
+}
+
+/* <!-- STORES --> */
+
+/*Footer*/
+
+.busc-venta-footer-container {
+  position: fixed;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  background: #3e1000;
+  color: #fff;
+  text-align: center;
+  font-size: 12px;
+}
+
+.busc-venta-footer-container a {
+  text-decoration: none;
+  font-size: 13px;
+  line-height: 20px;
+  color: #fff;
+  text-align: justify;
+}
