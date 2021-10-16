@@ -39,6 +39,7 @@ function App() {
             </Route>
             <Route path="/vendedores">
                 <Vendedores/>
+                <Logout/>
             </Route>
             <Route path="/moduloadmin">
                 <ModuloAdmin/>
