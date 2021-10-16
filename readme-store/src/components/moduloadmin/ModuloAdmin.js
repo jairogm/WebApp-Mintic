@@ -3,6 +3,7 @@ import "../css/modulo-admin.css";
 import FooterComponent from "../footer/FooterComponent";
 import GestionUsuarios from "../Gestion_Usuarios";
 import GestionInventario from "../gestion-inventario/Inventario";
+import GestionVentas from "./gestionventas/GestionVentas"
 import BuscarVenta from "../modulovendedores/buscarVenta/BuscarVenta";
 import RegistrarVenta from "../modulovendedores/registrarVenta/RegistrarVenta";
 import HeaderSimple from "../headerSimple/HeaderSimple";
@@ -19,7 +20,7 @@ function ModuloAdmin() {
         }else if(openGestionInventario){
             return <GestionInventario/>
         }else if(openBuscarVenta){
-            return <BuscarVenta/>
+            return <GestionVentas/>
         }else if(openRegistrarVenta){
             return <RegistrarVenta/>
         }
