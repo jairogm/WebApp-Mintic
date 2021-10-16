@@ -26,7 +26,7 @@ function App() {
             </Route>
             <Route path="/login">
               <Login/>
-              {/* <Logout/> */}
+              
             </Route>
             <Route path="/gestionusuarios">
               <GestionUsuarios />
@@ -43,6 +43,7 @@ function App() {
             </Route>
             <Route path="/moduloadmin">
                 <ModuloAdmin/>
+                <Logout/>
             </Route>
           </Switch>
       </Router>
