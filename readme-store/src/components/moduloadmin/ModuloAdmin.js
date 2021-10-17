@@ -22,7 +22,7 @@ function ModuloAdmin() {
         }else if(openBuscarVenta){
             return <GestionVentas/>
         }else if(openRegistrarVenta){
-            return <RegistrarVenta isAdmin ={true}/>
+            return <RegistrarVenta isAdmin ={true} setStates={setStates}/>
         }
     }
 

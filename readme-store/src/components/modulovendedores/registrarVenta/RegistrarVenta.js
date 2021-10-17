@@ -25,22 +25,25 @@ class ProductoTabla extends Component {
     }
 
     updateDetail = (isChecked, cantidad) => {
+        let subT = this.props.subTotal
         //Elimino el producto
         const products = this.props.detail.filter(product => {
             if (this.props.product._id !== product._id) {
                 return product
+            }else{
+                subT-=(product.price*product.stock);
             }
         })
         //Si esta checked lo agrego
-        if (isChecked && this.state.cantidad !== 0 && !isNaN(parseInt(cantidad))) {
+        if (isChecked && cantidad !== 0 && !isNaN(parseInt(cantidad))) {
             let product = JSON.parse(JSON.stringify(this.props.product))
             product.stock = parseInt(cantidad)
             this.props.setDetail([...products, product])
-            console.log([...products, product])
+            subT+=(product.price*cantidad)
         } else {
             this.props.setDetail([...products])
-            console.log([...products])
         }
+        this.props.setSubTotal(subT)
 
     }
 
@@ -51,20 +54,24 @@ class ProductoTabla extends Component {
                 <div className={this.props.row}>{this.props.product.author}</div>
                 <div className={this.props.row}>{this.props.product.stock}</div>
                 <div className={this.props.row}>{this.props.product.year}</div>
-                <div className={this.props.row}>{this.props.product.editorial}</div>
+                <div className={this.props.row}>{this.props.product.price}</div>
                 <input className="select" type="number" min="1" max={this.props.product.stock} onChange={this.onChange} value={this.state.cantidad}></input>
-                <input className={this.props.row} type="checkbox" onChange={this.checked}></input>
+                <div className={this.props.row + " checkbox-sale-container"}>
+                <input className="checkbox-sale" type="checkbox" onChange={this.checked}></input>
+                </div>
+                
             </>)
     }
 }
 
-export default function RegistrarVenta({ isAdmin }) {
+export default function RegistrarVenta({ isAdmin, setStates }) {
     const [sellers, setSellers] = useState([])
     const [products, setProducts] = useState([])
     const [detail, setDetail] = useState([])
     const [selectedSeller, setSelectedSeller] = useState()
     const [clientId, setClientId] = useState()
     const [clientName, setClientName] = useState()
+    const [subTotal, setSubTotal] = useState(0)
 
 
     useEffect(() => {
@@ -93,7 +100,7 @@ export default function RegistrarVenta({ isAdmin }) {
                 {
                     products.map(product => {
                         row = row === "row-odd" ? "row-pair" : "row-odd";
-                        return <ProductoTabla key={product._id} row={row} product={product} detail={detail} setDetail={setDetail} />
+                        return <ProductoTabla key={product._id} row={row} product={product} detail={detail} setDetail={setDetail} setSubTotal={setSubTotal} setSubTotal={setSubTotal} subTotal={subTotal}/>
                     })
                 }
             </>
@@ -134,15 +141,14 @@ export default function RegistrarVenta({ isAdmin }) {
         }
     }
 
-    const save = async () => {
+    const save = () => {
         for (let product of detail) {
             const productOnInv = products.filter(producto => producto._id === product._id)[0]
             if (product.stock >= productOnInv.stock) {
-                const res = await axios.delete("https://readme-store-api.herokuapp.com/api/products/" + productOnInv._id)
+                axios.delete("https://readme-store-api.herokuapp.com/api/products/" + productOnInv._id)
             } else {
-                console.log(productOnInv._id)
                 const newStock = productOnInv.stock - product.stock;
-                const res = await axios.patch("https://readme-store-api.herokuapp.com/api/products/" + productOnInv._id, { stock: newStock })
+                axios.patch("https://readme-store-api.herokuapp.com/api/products/" + productOnInv._id, { stock: newStock })
             }
         }
         const NewProduct = {
@@ -155,7 +161,9 @@ export default function RegistrarVenta({ isAdmin }) {
             clientname: clientName,
             detail: detail
         }
-        const res = await axios.post("http://localhost:3001/api/sales", NewProduct)
+        axios.post("https://readme-store-api.herokuapp.com/api/sales", NewProduct)
+        .then(()=> {setStates(false,false,true,false)})
+        
     }
 
     return (
@@ -167,7 +175,7 @@ export default function RegistrarVenta({ isAdmin }) {
                     <div className="row-head">Autor</div>
                     <div className="row-head">Stock</div>
                     <div className="row-head">Año</div>
-                    <div className="row-head">Editorial</div>
+                    <div className="row-head">Precio</div>
                     <div className="row-head">Cantidad</div>
                     <div className="row-head"></div>
 
@@ -177,9 +185,9 @@ export default function RegistrarVenta({ isAdmin }) {
                 </div>
 
                 <div className="purchase-data">
-                    <p className="purchase-data-item">Subtotal:        .</p>
-                    <p className="purchase-data-item">Envío:           .</p>
-                    <p className="purchase-data-item">Total:           .</p>
+                    <p className="purchase-data-item">{"Subtotal: " + subTotal}</p>
+                    <p className="purchase-data-item">{"Envío: " + 2000}</p>
+                    <p className="purchase-data-item">{"Total: " + (subTotal+2000)}</p>
                     <div className="purchase-data-item">Metodo de pago:.
                         <select className="select">
                             <option defaultValue >Tarjeta de Credito</option>
