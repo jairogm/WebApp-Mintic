@@ -85,12 +85,16 @@ h2{
 
 .product-table{
     display: grid;
-    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     width: 75%;
     margin: auto;
     grid-auto-flow:dense;
     border: 4px solid black;
 }
+
+.hidden{
+    visibility:hidden;
+ }
 
 .row-head{
     background-color: rgb(153, 132, 128);
@@ -156,6 +160,7 @@ h2{
     border-radius:10%;
     transition: all .35s ease;
 }
+
 
 .select:focus{
     border: 2px solid var(--third-color);

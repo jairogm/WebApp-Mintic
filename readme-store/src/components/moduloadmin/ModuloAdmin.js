@@ -22,7 +22,7 @@ function ModuloAdmin() {
         }else if(openBuscarVenta){
             return <GestionVentas/>
         }else if(openRegistrarVenta){
-            return <RegistrarVenta/>
+            return <RegistrarVenta isAdmin ={true}/>
         }
     }
 
@@ -45,7 +45,6 @@ function ModuloAdmin() {
                     <button onClick={() =>{setStates(false,false,true,false)}}>Buscar Ventas</button>
                     <button onClick={() =>{setStates(false,true,false,false)}}>Manejo Invetario</button>
                     <button onClick={() =>{setStates(true,false,false,false)}}>Gestion Usuarios</button>
-                    <button>Cerrar Sesion</button>
                 </section>
 
                 <section className="form">
