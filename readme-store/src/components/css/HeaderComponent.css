@@ -2,7 +2,7 @@
 
 
 .navbar {
-    background-color: var(--first-color);
+    background-color: #3E1000;
     min-height: 30px;
     margin-bottom: 1vh;
     display: flex;
@@ -14,7 +14,7 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
-    background-color: var(--first-color);
+    background-color: #3E1000;
 }
 
 .navbar-logo img{

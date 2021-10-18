@@ -4,7 +4,7 @@ import BuscarVenta from "./buscarVenta/BuscarVenta";
 import RegistrarVenta from "./registrarVenta/RegistrarVenta";
 import HeaderSimple from "../headerSimple/HeaderSimple";
 import GestionVendedores from "../gestion-vendedores/gestion-vendedores"
-
+import RegistroVentas from './RegistroVentas';
 
 
 import "./../css/vendedores.css"
@@ -12,6 +12,7 @@ import "./../css/vendedores.css"
 function Vendedores() {
     const[openGestionVendedores, SetopenGestionVendedores] = useState(false);
     const[openRegistrarVenta, SetOpenRegistrarVenta] = useState(false);
+    const[openRegistroVentas, SetopenRegistroVentas] = useState(false);
     const[openBuscarVenta, SetOpenBuscarVenta] = useState(false);
 
     const printForm = () => {
@@ -19,14 +20,17 @@ function Vendedores() {
             return <GestionVendedores/>
         }else if(openRegistrarVenta){
             return <RegistrarVenta/>
+        }else if(openRegistroVentas){
+            return <RegistroVentas/>  
         }else if(openBuscarVenta){
             return <BuscarVenta/>
         }
     }
 
-    const setStates = (GestionVendedores,RegistrarVenta,buscarVenta) => {
+    const setStates = (GestionVendedores,RegistrarVenta,RegistroVentas,buscarVenta) => {
         SetopenGestionVendedores(GestionVendedores)
         SetOpenRegistrarVenta(RegistrarVenta)
+        SetopenRegistroVentas(RegistroVentas)
         SetOpenBuscarVenta(buscarVenta)  
     }
 
@@ -38,8 +42,8 @@ function Vendedores() {
                 <section className="side-menu">
                     <button onClick={()=>{setStates(true,false,false,false)}}>Informacion del vendedor</button>
                     <button onClick={() =>{setStates(false,true,false,false)}}>Registrar Venta</button>
-                    <button >Ventas del Mes</button>
-                    <button onClick={() =>{setStates(false,false,true,false)}}>Buscar Ventas</button>
+                    <button onClick={() =>{setStates(false,false,true,false)}}>Ventas del Mes</button>
+                    <button onClick={() =>{setStates(false,false,false,true)}}>Buscar Ventas</button>
                 </section>
 
                 <section className="form">
