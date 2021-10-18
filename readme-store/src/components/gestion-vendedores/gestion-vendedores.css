@@ -6,14 +6,11 @@
   --fiveth-color: #45230c;
 }
 
-.avatar {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-}
+
 
 body {
   margin: 0;
+  padding: 0px;
   font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -29,16 +26,13 @@ body {
 }
 
 .gestion-container {
-  width: 100vw;
-  height: 100vh;
   background-color: white;
-  display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
-  background-image: url("./fondogestion.jpg");
-  background-repeat: no-repeat;
-  background-size: 100vw;
+  flex-direction: row;
+  position: relative;
+  display: flex;
+  
 }
 
 .container-form-gestion {
@@ -50,7 +44,7 @@ body {
 }
 
 .gestion-container-form {
-  width: 350px;
+  width: 550px;
   height: 550px;
   background-color: var(--fourth-color);
   display: flex;
@@ -106,24 +100,7 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.footer-container {
-  position: fixed;
-  width: 100%;
-  left: 0;
-  bottom: 0;
-  background: #3e1000;
-  color: #fff;
-  text-align: center;
-  font-size: 12px;
-}
 
-.footer-container a {
-  text-decoration: none;
-  font-size: 13px;
-  line-height: 20px;
-  color: #fff;
-  text-align: justify;
-}
 
 .logo-container-gvendedores {
   width: 100%;
