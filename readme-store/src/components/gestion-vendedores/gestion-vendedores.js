@@ -6,15 +6,7 @@ function GestionVendedores() {
   return (
     <div class="gestion-container">
       <div class="gestion-container-form">
-        <div class="logo-container-gvendedores">
-          <img
-            class="avatar avatar-img"
-            src=" img/ReadMeLogo.png "
-            alt="Logo de Readme "
-          />
-        </div>
-
-        <form class="container-form-gestion">
+          <form class="container-form-gestion">
           <div class="gestion-input-container">
             <label class="gestion-label-text"> ID vendedor: </label>
             <input

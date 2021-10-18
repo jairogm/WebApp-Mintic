@@ -41,7 +41,6 @@ function ModuloAdmin() {
             <section className="container">
                 <section className="side-menu">
                     <button onClick={() =>{setStates(false,false,false,true)}}>Registrar Venta</button>
-                    <button >Registro de ventas</button>
                     <button onClick={() =>{setStates(false,false,true,false)}}>Buscar Ventas</button>
                     <button onClick={() =>{setStates(false,true,false,false)}}>Manejo Invetario</button>
                     <button onClick={() =>{setStates(true,false,false,false)}}>Gestion Usuarios</button>
