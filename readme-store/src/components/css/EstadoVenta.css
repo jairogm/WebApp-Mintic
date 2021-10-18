@@ -9,7 +9,7 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     background: white;
   }
-  .section-1-container {
+  .vent-section-1-container {
       background: #fff;
   }
 
@@ -27,12 +27,12 @@ header{
     padding: 1rem;
 }
 
-.h2-logo{
+.vent-h2-logo{
     text-align: center;
     font-size: 40px;
 }
 
-.btn{
+.vent-btn{
     display: flex;
     text-transform: uppercase;
     border-radius: 5px;
@@ -42,23 +42,23 @@ header{
     margin: auto;
 }
 
-.btn:hover{
+.vent-btn:hover{
     background-color: #ECC939
 
 }
 
-.btn:focus{
+.vent-btn:focus{
     background-color: #fff;
     border: #CEB035 solid 5px;
 }
 
-.btn-icon{
+.vent-btn-icon{
     margin: auto;
     width: 3rem;
 }
 
 
-.btn-text{
+.vent-btn-text{
     font-size: 0.8125rem;
     font-weight: 700;
     letter-spacing: .5px;
@@ -66,31 +66,31 @@ header{
 }
 
 
-.container-header{
+.vent-container-header{
     display: flex;
     flex-direction: row;
 }
 
-.icon{
+.vent-icon{
     padding-right: 5px;
 }
 
-.shop-data p{
+.vent-shop-data p{
     margin: auto;
 }
 
-.section-1-container{
+.vent-section-1-container{
     display: flex;
     margin-top: 2rem;
     flex-direction: column;
     
 }
-.section-1-container p {
+.vent-section-1-container p {
     color:black;
     font-weight: bolder;
 }
 
-.shop-data{
+.vent-shop-data{
     display: flex;
     width: 75%;
     margin:  auto;
@@ -98,16 +98,16 @@ header{
 
 }
 
-.product-table{
+.vent-product-table{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     width: 75%;
     margin: auto;
     grid-auto-flow:dense;
     border: 4px solid black;
 }
 
-.row-head{
+.vent-row-head{
     background-color: rgb(153, 132, 128);
     padding: 15px;
     border-right: 2px solid black;
@@ -124,18 +124,18 @@ header{
     border-right: 2px solid black;
 }
 
-.purchase-data{
+.vent-purchase-data{
     width: 75%;
     margin: 15px auto;
     text-align: end;
     
 }
 
-.purchase-data-item{
+.vent-purchase-data-item{
     padding: 1rem;
 }
 
-.shipping-data{
+.vent-shipping-data{
     margin: auto;
     width: 75%;
     background-color: var(--fourth-color);
@@ -145,31 +145,31 @@ header{
     
 }
 
-.shipping-data-title{
+.vent-shipping-data-title{
     padding: 1rem;
 }
 
-.shipping-data-item{
+.vent-shipping-data-item{
     padding: 1rem;
 }
 
-.purchase-state{
+.vent-purchase-state{
     margin: 2rem auto;
     width: 75%;
 }
 
-.purchase-state-item-container{
+.vent-purchase-state-item-container{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
 }
 
-.state-range{
+.vent-state-range{
     width: 100%;
     justify-content: space-between;
 }
 
-.btn-state{
+.vent-btn-state{
     display: flex;
     border-radius: 5px;
     border: 2px solid transparent;
@@ -180,13 +180,13 @@ header{
     padding: 0.5rem;
 }
 
-.btn-state:hover{
+.vent-btn-state:hover{
     background-color: #45230C;
     color:#fff
 
 }
 
-.btn-state:focus{
+.vent-btn-state:focus{
     background-color: #fff;
     border: #CEB035 solid 5px;
 }

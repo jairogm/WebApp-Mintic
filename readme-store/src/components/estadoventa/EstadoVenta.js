@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, useState, useEffect } from 'react'
 import '../css/EstadoVenta.css'
 import axios from 'axios'
 
@@ -7,108 +7,153 @@ class ProductoTabla extends Component {
     render() {
         return (
             <>
-                    <div className={this.props.row}>{this.props.product.title}</div>
-                    <div className={this.props.row}>{this.props.product.amount}</div>
-                    <div className={this.props.row}>{this.props.product.price}</div>
-                    <div className={this.props.row}>{this.props.product.totalPrice}</div>
-               
+                <div className={this.props.row}>{this.props.product.title}</div>
+                <div className={this.props.row}>{this.props.product.author}</div>
+                <div className={this.props.row}>{this.props.product.stock}</div>
+                <div className={this.props.row}>{this.props.product.year}</div>
+                <div className={this.props.row}>{this.props.product.price}</div>
             </>)
     }
 }
 
 
 
-export default class EstadoVenta extends Component {
 
-    async componentDidMount(){
-        const res =  await axios.get("https://readme-store-api.herokuapp.com/api/products")
+export default function EstadoVenta({ ventaEstado, setStates}) {
 
-        const productsres = res.data.map(product =>{
-            return {
-                id : product._id,
-                title: product.title,
-                price: product.price,
-                amount: product.sku,
-                totalPrice: product.sku*product.price
-            }
-        })
+    const [products, setProducts] = useState([])
+    const [subTotal, setSubTotal] = useState([])
+    const [clientId, setClientId] = useState("")
+    const [clientName, setClientName] = useState("")
+    const [saleStatus, setSaleStatus] = useState("")
 
-        this.setState({products:productsres}) 
+
+    const getData = () => {
+        setProducts(ventaEstado.detail)
+        let subT = 0;
+        for(let product of ventaEstado.detail){
+            subT += (product.price * product.stock)
+        }
+        setSubTotal(subT)
+        setClientId(ventaEstado.clientid)
+        setClientName(ventaEstado.clientname)
+        setSaleStatus(ventaEstado.status)
     }
 
-    state = {
-        statePurchase: 0,
-        products: [],
-        subtotal: 0,
-        shipping: 0,
-        total: 0,
-        paypethod: "Tarjeta",
-        name: "name",
-        email: "email",
-        phone: "phone",
-        address: "address",
-        id: "id",
-        date: new Date(),
+    const getStatusNumber = (status) =>{
+        if(status === "Orden Recibida"){
+            return 1
+        }else if(status === "Pago Aprobado"){
+            return 2
+        }else if(status === "Orden Facturada"){
+            return 3
+        }else if(status === "Pedido Enviado"){
+            return 4
+        }else if(status === "Pedido Recibido"){
+            return 5
+        }else{
+            return 0
+        }
     }
 
-    printProducts() {
+    const setStatusByNumber = (number) =>{
+        number=parseInt(number)
+        if(number === 1){
+            setSaleStatus("Orden Recibida")
+        }else if(number === 2){
+            setSaleStatus("Pago Aprobado")
+        }else if(number === 3){
+            setSaleStatus("Orden Facturada")
+        }else if(number === 4){
+            setSaleStatus("Pedido Enviado") 
+        }else if(number === 5){
+            setSaleStatus("Pedido Recibido")
+        }
+    }
+
+    useEffect(() => {
+        getData();
+    }, []);
+
+    const printProducts = () => {
         let row = "row-pair";
         return <>
-        {this.state.products.map((product) => {
-            row = row === "row-odd" ? "row-pair" : "row-odd"
-            return <ProductoTabla key ={product.id} product = {product} row = {row}/>
-        })}
+            {products.map((product) => {
+                row = row === "row-odd" ? "row-pair" : "row-odd"
+                return <ProductoTabla key={product._id} product={product} row={row} />
+            })
+            }
         </>
     }
 
-
-    render() {
-        return (
-            <div>
-                <section className="section-1-container">
-                    <div className="shop-data">
-                        <p>Pedido #{this.state.id}</p>
-                        <p>Fecha: {this.state.date.toString()}</p>
-                    </div>
-                    <div className="product-table">
-                        <div className="row-head">Producto</div>
-                        <div className="row-head">Cantidad</div>
-                        <div className="row-head">Precio Unitario</div>
-                        <div className="row-head">Precio Total</div>
-
-
-                        {
-                            this.printProducts()
-                        }
-                    </div>
-
-                    <div className="purchase-data">
-                        <p className="purchase-data-item">Subtotal:<>{this.state.subtotal}</>.</p>
-                        <p className="purchase-data-item">Envío:<>{this.state.shipping}</>.</p>
-                        <p className="purchase-data-item">Total:<>{this.state.total}</>.</p>
-                        <div className="purchase-data-item">Metodo de pago:<p style={{"display":"inline","fontStyle": "italic"}}>{this.state.paypethod}</p>.</div>
-                    </div>
-                </section>
-
-                <section className="shipping-data">
-                    <p className="shipping-data-title">Datos de envío:</p>
-                    <div className="shipping-data-item">Nombre:<p style={{"display":"inline","fontStyle": "italic","marginLeft":"1rem"}}>{this.state.name}</p></div>
-                    <div className="shipping-data-item">Email:<p style={{"display":"inline","fontStyle": "italic","marginLeft":"1rem"}}>{this.state.email}</p></div>
-                    <div className="shipping-data-item">Teléfono:<p style={{"display":"inline","fontStyle": "italic","marginLeft":"1rem"}}>{this.state.phone}</p></div>
-                    <div className="shipping-data-item">Dirección:<p style={{"display":"inline","fontStyle": "italic","marginLeft":"1rem"}}>{this.state.address}</p></div>
-                </section>
-                <section className="purchase-state">
-                    <div className="purchase-state-item-container">
-                        <p className="purchase-state-item">Orden Recibida</p>
-                        <p className="purchase-state-item">Pago Aprobado</p>
-                        <p className="purchase-state-item">Orden Facturada</p>
-                        <p className="purchase-state-item">Pedido Enviado</p>
-                        <p className="purchase-state-item">Pedido Recibido</p>
-                    </div>
-                    <input className="state-range" type="range" min="0" max="5" value={this.state.statePurchase} onChange={this.printProducts}/>
-                    <button className="btn-state">Estado de Venta</button>
-                </section>
-            </div>
-        )
+    const save = () => {
+        const saleChanged = {
+            clientname:clientName,
+            clientid:clientId,
+            status:saleStatus
+        }
+        
+        axios.patch("https://readme-store-api.herokuapp.com/api/sales/"+ventaEstado._id, saleChanged)
+        .then(setStates(false,false,false,false,false));
     }
+
+    return (
+        <div>
+            <section className="vent-section-1-container">
+                <div className="vent-shop-data">
+                    <p>Pedido #{ventaEstado._id}</p>
+                    <p>Fecha: {ventaEstado.date}</p>
+                </div>
+                <div className="vent-product-table">
+                    <div className="vent-row-head">Titulo</div>
+                    <div className="vent-row-head">Autor</div>
+                    <div className="vent-row-head">Cantidad</div>
+                    <div className="vent-row-head">Año</div>
+                    <div className="vent-row-head">Precio</div>
+                    {
+                        printProducts()
+                    }
+                </div>
+
+                <div className="vent-purchase-data">
+                    <p className="vent-purchase-data-item">Subtotal:<>{subTotal}</>.</p>
+                    <p className="vent-purchase-data-item">Envío:<>{2000}</>.</p>
+                    <p className="vent-purchase-data-item">Total:<>{subTotal+2000}</>.</p>
+                    <div className="vent-purchase-data-item">Metodo de pago:.</div>
+                </div>
+            </section>
+
+            <section className="shipping-data">
+                <p className="shipping-data-title">Datos de envío</p>
+                <div className="shipping-data-item">Nombre:
+                    <input type="text" className="shipping-data-input" value={clientName} onChange={(event) =>setClientName(event.target.value)}></input>
+                </div>
+                <div className="shipping-data-item">Email:
+                    <input type="text" className="shipping-data-input"></input>
+                </div>
+                <div className="shipping-data-item">Teléfono:
+                    <input type="text" className="shipping-data-input"></input>
+                </div>
+                <div className="shipping-data-item">Dirección:
+                    <input type="text" className="shipping-data-input"></input>
+                </div>
+                <div className="shipping-data-item">DNI:
+                    <input type="text" className="shipping-data-input" value={clientId} onChange={(event) =>setClientId(event.target.value)}></input>
+                </div>
+            </section>
+            <section className="vent-purchase-state">
+                <div className="vent-purchase-state-item-container">
+                    <p className="vent-purchase-state-item">Orden Recibida:</p>
+                    <p className="vent-purchase-state-item">Pago Aprobado:</p>
+                    <p className="vent-purchase-state-item">Orden Facturada:</p>
+                    <p className="vent-purchase-state-item">Pedido Enviado:</p>
+                    <p className="vent-purchase-state-item">Pedido Recibido:</p>
+                </div>
+                <input className="vent-state-range" type="range" min="0" max="5" value={getStatusNumber(saleStatus)} onChange={(e)=>{setStatusByNumber(e.target.value)}}/>
+                <button className="vent-btn-state" onClick={save}>Guardar Cambios</button>
+            </section>
+        </div>
+    )
 }
+
+

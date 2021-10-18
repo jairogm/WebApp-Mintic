@@ -18,12 +18,12 @@ body {
   }
 
 
-.gest-usu-h2-logo{
+.gest-ven-h2-logo{
     text-align: center;
     font-size: 40px;
 }
 
-.gest-usu-btn{
+.gest-ven-btn{
     display: flex;
     text-transform: uppercase;
     border-radius: 5px;
@@ -32,23 +32,23 @@ body {
     background-color: var(--fourth-color);
     margin: auto;
 }
-.gest-usu-btn:hover{
+.gest-ven-btn:hover{
     background-color: #ECC939
 
 }
 
-.gest-usu-btn:focus{
+.gest-ven-btn:focus{
     background-color: #fff;
     border: #CEB035 solid 5px;
 }
 
-.gest-usu-btn-icon{
+.gest-ven-btn-icon{
     margin: auto;
     width: 3rem;
 }
 
 
-.gest-usu-btn-text{
+.gest-ven-btn-text{
     font-size: 0.8125rem;
     font-weight: 700;
     letter-spacing: .5px;
@@ -56,42 +56,42 @@ body {
 }
 
 
-.gest-usu-container-header{
+.gest-ven-container-header{
     display: flex;
     flex-direction: row;
 }
 
-.gest-usu-icon{
+.gest-ven-icon{
     padding-right: 5px;
 }
 
-.gest-usu-p-search{
+.gest-ven-p-search{
     display: inline-block;
 }
 
-.gest-usu-section-1-container{
+.gest-ven-section-1-container{
     display: flex;
     margin-top: 2rem;
     flex-direction: column;
 
-
 }
 
-.gest-usu-search-box{
+.gest-ven-search-box{
     margin:1rem auto;
     display: flex;
     flex-direction: column;
     padding: 30px;
     border: 3px solid black;
-    width: 60%;
+    width:60%;
+
 }
 
-.gest-usu-search-row{
+.gest-ven-search-row{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
-.gest-usu-search-input{
+.gest-ven-search-input{
     height: 30px;
   border-radius: 10px;
   border: none;
@@ -102,33 +102,33 @@ body {
   font-size: 16px;
 }
 
-.gest-usu-btn-search{
+.gest-ven-btn-search{
     padding: 10px;
     margin:10px auto;
 }
 
-.gest-usu-user-table{
+.gest-ven-user-table{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     width: 75%;
     margin: auto;
     grid-auto-flow:dense;
     border: 4px solid black;
 }
 
-.gest-usu-row-head{
+.gest-ven-row-head{
     background-color: rgb(153, 132, 128);
     padding: 15px;
     border-right: 2px solid black;
 }
 
-.gest-usu-row-pair{
+.row-pair{
     background-color: #DED0CE;
     padding: 15px;
     border-right: 2px solid black;
 }
 
-.gest-usu-row-odd{
+.row-odd{
     padding: 15px;
     border-right: 2px solid black;
 }

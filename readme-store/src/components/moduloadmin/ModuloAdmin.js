@@ -7,12 +7,15 @@ import GestionVentas from "./gestionventas/GestionVentas"
 import BuscarVenta from "../modulovendedores/buscarVenta/BuscarVenta";
 import RegistrarVenta from "../modulovendedores/registrarVenta/RegistrarVenta";
 import HeaderSimple from "../headerSimple/HeaderSimple";
+import EstadoVenta from '../estadoventa/EstadoVenta'
 
 function ModuloAdmin() {
     const [openGestionUsuarios, SetOpenGestionUsuarios] = useState(false);
     const [openGestionInventario, SetOpenGestionInventario] = useState(false);
     const [openBuscarVenta, SetOpenBuscarVenta] = useState(false);
     const [openRegistrarVenta, SetOpenRegistrarVenta] = useState(false);
+    const [openEstadoVenta, SetOpenEstadoVenta] = useState(false);
+    const [ventaEstado, SetVentaEstado] = useState();
 
     const printForm = () => {
         if (openGestionUsuarios) {
@@ -20,17 +23,20 @@ function ModuloAdmin() {
         }else if(openGestionInventario){
             return <GestionInventario/>
         }else if(openBuscarVenta){
-            return <GestionVentas/>
+            return <GestionVentas setStates={setStates} setVentaEstado={SetVentaEstado}/>
         }else if(openRegistrarVenta){
             return <RegistrarVenta isAdmin ={true} setStates={setStates}/>
+        }else if(openEstadoVenta){
+            return <EstadoVenta ventaEstado={ventaEstado} setStates={setStates}/>
         }
     }
 
-    const setStates = (gestUsu,gestInv,buscarVenta,RegsVenta) => {
+    const setStates = (gestUsu,gestInv,buscarVenta,RegsVenta,EstadoVenta) => {
         SetOpenGestionUsuarios(gestUsu)
         SetOpenGestionInventario(gestInv)
         SetOpenBuscarVenta(buscarVenta)
         SetOpenRegistrarVenta(RegsVenta)
+        SetOpenEstadoVenta(EstadoVenta)
     }
 
 
@@ -40,11 +46,10 @@ function ModuloAdmin() {
             <HeaderSimple/>
             <section className="container">
                 <section className="side-menu">
-                    <button onClick={() =>{setStates(false,false,false,true)}}>Registrar Venta</button>
-                    <button >Registro de ventas</button>
-                    <button onClick={() =>{setStates(false,false,true,false)}}>Buscar Ventas</button>
-                    <button onClick={() =>{setStates(false,true,false,false)}}>Manejo Invetario</button>
-                    <button onClick={() =>{setStates(true,false,false,false)}}>Gestion Usuarios</button>
+                    <button onClick={() =>{setStates(false,false,false,true,false)}}>Registrar Venta</button>
+                    <button onClick={() =>{setStates(false,false,true,false,false)}}>Buscar Ventas</button>
+                    <button onClick={() =>{setStates(false,true,false,false,false)}}>Manejo Invetario</button>
+                    <button onClick={() =>{setStates(true,false,false,false,false)}}>Gestion Usuarios</button>
                 </section>
 
                 <section className="form">

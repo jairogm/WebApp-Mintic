@@ -1,6 +1,6 @@
 import React, { useState, useEffect, Component, setTimeout } from "react";
 import GestionVentaspopup from './GestionVentasPopup';
-import "../../css/Gestion_Usuarios.css"
+import "../../css/GestionVentas.css"
 import usePopUp from "./../../../hooks/usePopUp";
 import axios from 'axios';
 
@@ -10,17 +10,15 @@ class VentaTabla extends Component {
         return (
             <>
                 <div className={this.props.row}>{this.props.sale.id}</div>
-                <div className={this.props.row}>{this.props.sale.sellerid}</div>
-                <div className={this.props.row}>{this.props.sale.sellername}</div>
-                <div className={this.props.row}>{this.props.sale.date}</div>
-                <div className={this.props.row}>{this.props.sale.status}</div>
+                <div className={this.props.row}>{this.props.sale.clientid}</div>
                 <div className={this.props.row}>{this.props.sale.clientname}</div>
+                <div className={this.props.row}>{this.props.sale.date}</div>
             </>)
     }
 }
 
 
-function Gestion_Ventas() {
+function Gestion_Ventas({ setStates, setVentaEstado, renderAgain, SetRenderAgain }) {
     const [isOpenModal, openModal, closeModal] = usePopUp();
     const [sales, setSales] = useState([])
     const [idSearch, setIdSearch] = useState("")
@@ -28,7 +26,6 @@ function Gestion_Ventas() {
     const [NameClSearch, setNameClSearch] = useState("")
     const [DateSearch, setDateSearch] = useState("")
     const [WasFound, setWasFound] = useState(true)
-    const [isModidy, setIsModidy] = useState(true)
     const [saleData, setSaleData] = useState({})
 
     const getSales = async () => {
@@ -36,11 +33,9 @@ function Gestion_Ventas() {
         const salesGetted = res.data.map(sale => {
             return {
                 id: sale._id,
-                sellerid: sale.sellerid,
-                sellername: sale.sellername,
-                date: sale.date,
-                status: sale.status,
-                clientname: sale.clientname
+                clientid: sale.clientid,
+                clientname: sale.clientname,
+                date: sale.date
             }
         });
         setSales(salesGetted)
@@ -48,12 +43,20 @@ function Gestion_Ventas() {
 
     useEffect(() => {
         getSales();
+        if (renderAgain) {
+            SetRenderAgain(false);
+            setStates(false,false,true,false,false)
+        }
     }, []);
 
-    const close = () => {
+    const close = (isModidy) => {
         closeModal();
-        getSales();
-        setWasFound(true)
+        if (isModidy) {
+            setVentaEstado(saleData)
+            setStates(false,false,false,false,true)
+        } else {
+            setWasFound(true)
+        }
     }
 
     const printSales = () => {
@@ -81,7 +84,7 @@ function Gestion_Ventas() {
 
         } else {
 
-            res = await axios.get("https://readme-store-api.herokuapp.com/api/sales?id=" + idSearch + "&clientid=" + IdClSearch + "&clientname=" + NameClSearch+ "&date=" + DateSearch)
+            res = await axios.get("https://readme-store-api.herokuapp.com/api/sales?id=" + idSearch + "&clientid=" + IdClSearch + "&clientname=" + NameClSearch + "&date=" + DateSearch)
 
             if (res.data.length === 0) {
                 setWasFound(false)
@@ -96,40 +99,37 @@ function Gestion_Ventas() {
     return (
         <div>
 
-            <section className="gest-usu-section-1-container">
-                <div className="gest-usu-search-box">
-                    <div className="gest-usu-search-row">
-                        <p className="gest-usu-p-search">Buscar ID:</p>
-                        <input type="text" className="gest-usu-search-input" placeholder="ID" onChange={(e) => setIdSearch(e.target.value)} value={idSearch} />
+            <section className="gest-ven-section-1-container">
+                <div className="gest-ven-search-box">
+                    <div className="gest-ven-search-row">
+                        <p className="gest-ven-p-search">Buscar ID:</p>
+                        <input type="text" className="gest-ven-search-input" placeholder="ID" onChange={(e) => setIdSearch(e.target.value)} value={idSearch} />
                     </div>
-                    <div className="gest-usu-search-row">
-                        <p className="gest-usu-p-search">ID Cliente:</p>
-                        <input type="text" className="gest-usu-search-input" placeholder="ID Cliente" onChange={(e) => setIdClSearch(e.target.value)} value={IdClSearch} />
+                    <div className="gest-ven-search-row">
+                        <p className="gest-ven-p-search">ID Cliente:</p>
+                        <input type="text" className="gest-ven-search-input" placeholder="ID Cliente" onChange={(e) => setIdClSearch(e.target.value)} value={IdClSearch} />
                     </div>
-                    <div className="gest-usu-search-row">
-                        <p className="gest-usu-p-search">Nombre Cliente:</p>
-                        <input type="text" className="gest-usu-search-input" placeholder="Nombre Cliente" onChange={(e) => setNameClSearch(e.target.value)} value={NameClSearch} />
+                    <div className="gest-ven-search-row">
+                        <p className="gest-ven-p-search">Nombre Cliente:</p>
+                        <input type="text" className="gest-ven-search-input" placeholder="Nombre Cliente" onChange={(e) => setNameClSearch(e.target.value)} value={NameClSearch} />
                     </div>
-                    <div className="gest-usu-search-row">
-                        <p className="gest-usu-p-search">Fecha:</p>
-                        <input type="text" className="gest-usu-search-input" placeholder="Fecha Venta" onChange={(e) => setDateSearch(e.target.value)} value={DateSearch} />
+                    <div className="gest-ven-search-row">
+                        <p className="gest-ven-p-search">Fecha:</p>
+                        <input type="text" className="gest-ven-search-input" placeholder="Fecha Venta" onChange={(e) => setDateSearch(e.target.value)} value={DateSearch} />
                     </div>
 
-                    <div className="gest-usu-search-box-buttons">
-                        <button onClick={() => { Search(); setIsModidy(false) }} className="gest-usu-btn gest-usu-btn-search">Buscar</button>
-                        <button onClick={() => { Search(); setIsModidy(true) }} className="gest-usu-btn gest-usu-btn-search">Actualizar</button>
-                        <GestionVentaspopup isOpen={isOpenModal} WasFound={WasFound} close={close} data={saleData} isModidy={isModidy} />
+                    <div className="gest-ven-search-box-buttons">
+                        <button onClick={() => { Search() }} className="gest-ven-btn gest-ven-btn-search">Buscar</button>
+                        <GestionVentaspopup isOpen={isOpenModal} WasFound={WasFound} close={close} data={saleData} />
 
                     </div>
                 </div>
 
-                <div className="gest-usu-user-table">
-                    <div className="gest-usu-row-head">Id Venta</div>
-                    <div className="gest-usu-row-head">Id Vendedor</div>
-                    <div className="gest-usu-row-head">Nombre Vendedor</div>
-                    <div className="gest-usu-row-head">Fecha</div>
-                    <div className="gest-usu-row-head">Status</div>
-                    <div className="gest-usu-row-head">Nombre Cliente</div>
+                <div className="gest-ven-user-table">
+                    <div className="gest-ven-row-head">Id Venta</div>
+                    <div className="gest-ven-row-head">Id Cliente</div>
+                    <div className="gest-ven-row-head">Nombre Cliente</div>
+                    <div className="gest-ven-row-head">Fecha</div>
 
 
                     {
