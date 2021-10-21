@@ -5,18 +5,6 @@ import usePopUp from "../../hooks/usePopUp";
 import axios from 'axios';
 
 
-class VentaTabla extends Component {
-    render() {
-        return (
-            <>
-                <div className={this.props.row}>{this.props.sale.id}</div>
-                <div className={this.props.row}>{this.props.sale.clientid}</div>
-                <div className={this.props.row}>{this.props.sale.clientname}</div>
-                <div className={this.props.row}>{this.props.sale.date}</div>
-            </>)
-    }
-}
-
 
 function RegistroVentas({ setStates, setVentaEstado, renderAgain, SetRenderAgain }) {
     const [isOpenModal, openModal, closeModal] = usePopUp();
@@ -64,7 +52,7 @@ function RegistroVentas({ setStates, setVentaEstado, renderAgain, SetRenderAgain
         return <>
             {sales.map((sale) => {
                 row = row === "row-odd" ? "row-pair" : "row-odd"
-                return <VentaTabla key={sale.id} sale={sale} row={row} />
+                return <RegistroVentas key={sale.id} sale={sale} row={row} />
             })}
         </>
     }
