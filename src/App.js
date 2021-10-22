@@ -28,15 +28,6 @@ function App() {
               <Login/>
               
             </Route>
-            <Route path="/gestionusuarios">
-              <GestionUsuarios />
-            </Route>
-            <Route path="/estadoventa">
-              <EstadoVenta/>
-            </Route>
-            <Route path="/administrarventa">
-                <AdministrarVenta/>
-            </Route>
             <Route path="/vendedores">
                 <Vendedores/>
                 <Logout/>

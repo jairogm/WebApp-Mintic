@@ -10,6 +10,17 @@ import HeaderSimple from "../headerSimple/HeaderSimple";
 import EstadoVenta from '../estadoventa/EstadoVenta'
 
 function ModuloAdmin() {
+    let userid = localStorage.getItem('userid')
+    let userrol = localStorage.getItem('rol')
+    if (userrol == "Seller"){
+        window.location.replace("/vendedores")
+    }
+    if (!userid) {
+        window.localStorage.clear()
+        window.sessionStorage.clear()
+        window.location.replace("/login")
+    }
+    
     const [openGestionUsuarios, SetOpenGestionUsuarios] = useState(false);
     const [openGestionInventario, SetOpenGestionInventario] = useState(false);
     const [openBuscarVenta, SetOpenBuscarVenta] = useState(false);

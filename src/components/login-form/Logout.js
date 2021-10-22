@@ -4,18 +4,16 @@ import GoogleLogout from 'react-google-login';
 
 
 function Logout() {
-    const onSuccess = (res) => {
-        alert('Cierre de sesión exitoso');
-        };
+    const logOut = (res) => {
+        localStorage.clear()
+        sessionStorage.clear()
+        window.location.replace("/login")
+    };
 
-return (
-    <div className="google-logout">
-        <GoogleLogout
-        clientId="274458045197-0e7v4i3qujmmv24q3dirtkvhvab2usa0.apps.googleusercontent.com"
-        buttonText="Cerrar Sesión"
-        onLogoutSuccess={onSuccess}
-        ></GoogleLogout>
-    </div>
-);
+    return (
+        <div className="google-logout">
+            <button onClick={logOut}>Cerrar sesión</button>
+        </div>
+    );
 }
 export default Logout;

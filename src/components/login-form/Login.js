@@ -6,11 +6,26 @@ import "./css/stylelogin.css";
 import { Redirect } from "react-router";
 
 function Login() {
-  const [isanUser, setisanUser] = useState(false);
-  const [isLoggedin, setisLoggedin] = useState(false);
-  const onSuccess = (googleUser) => {
-    setisLoggedin(true);
+  const [isAdmin, setAdmin] = useState(false);
+  const [isLogedIn, setUsLog] = useState(false);
 
+  const getToken = () => {
+    let userrol = localStorage.getItem('rol');
+    if (userrol == "Admin") {
+      setAdmin(true)
+      setUsLog(true)
+    } else if (userrol == "Seller") {
+      setAdmin(false)
+      setUsLog(true)
+    } else {
+      setUsLog(false)
+      setAdmin(false)
+    }
+    return window ? userrol : '';
+  };
+
+
+  const onSuccess = async (googleUser) => {
     const profile = googleUser.getBasicProfile();
     const name = profile.getName();
     const email = profile.getEmail();
@@ -19,44 +34,27 @@ function Login() {
       "Content-Type": "application/json",
       "Access-Control-Allow-Origin": "*",
     };
-    var data = JSON.stringify({
-      name: name,
-      email: email,
-      username: email,
-      withGoogle: true,
-      status: "enabled",
-    });
-    axios
-      .post(
-        "https://readme-store-api.herokuapp.com/api/users/auth",
-        (data = data),
-        { headers: headers }
-      )
-      .then((response) => {
-        let tokeninfo = jwt.decode(response.data.token, process.env.JWT_SECRET);
-        console.log(tokeninfo);
-        console.log(tokeninfo.rol);
-        if (tokeninfo.rol === "Seller") {
-          setisanUser(true);
-        } else {
-          setisanUser(false);
-        }
-      });
+    var data = JSON.stringify({ name: name, email: email, username: email, withGoogle: true, status: "enabled", });
+    if (!getToken()) {
+      let respons = await axios.post("https://readme-store-api.herokuapp.com/api/users/auth", (data = data), { headers: headers })
+      console.log(respons.data)
+      let tokeninfo = jwt.decode(respons.data.token, process.env.REACT_APP_JWT_SECRET);
+      localStorage.setItem('rol', tokeninfo.rol)
+      localStorage.setItem('userid', tokeninfo.id)
+      getToken()
     }
+  }
 
-
-
-  
+  //si google falla
   const onFailure = (res) => {
-    console.log("[Inicio de sesión fallido] ress:", res);
-    setisLoggedin(false)
+
   };
 
   return (
     <div className="body">
-      {isLoggedin ? (
+      {isLogedIn ? (
         <>
-          {isanUser === true ? (
+          {isAdmin === true ? (
             <>
               <Redirect to="/moduloadmin" />
             </>
@@ -82,7 +80,6 @@ function Login() {
               onFailure={onFailure}
               cookiePolicy={"single_host_origin"}
               style={{ marginTop: "100px" }}
-              isSignedIn={true}
             />
           </div>
 
@@ -94,6 +91,6 @@ function Login() {
         </>
       )}
     </div>
-  );
+  )
 }
 export default Login;
