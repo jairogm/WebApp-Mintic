@@ -1,0 +1,128 @@
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+:root {
+    --first-color: #3e1000;
+    --second-color: #5a1a05;
+    --third-color: #653719;
+    --fourth-color: #ceb035;
+    --fiveth-color: #45230c;
+    --font-color: #eef4ed;
+}
+header{
+    background-color: var(--second-color);
+    color: #fff;
+    padding: 0.5rem;
+
+    margin-bottom: 2rem;
+}
+.form-datos-envio {
+    width: 500px;
+    height: 500px;
+    background:#CEB035;
+    border: none;
+    position: relative;
+    padding: 50px 50px;
+    top :20px;
+}
+.form-datos-envio h2{
+    margin: 0;
+    padding: 10px 0 20px;
+    text-align: center;
+    font-size: 25px;
+    color: #fff;
+}
+.form-datos-envio label {
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+    display: block;
+    color: #fff;
+}
+.form-datos-envio input{
+        width: 100%;
+        margin-bottom: 13px;
+}
+.form-datos-envio input[type="text"],
+input[type="email"], input[type="tel"]{
+    border: none;
+    border-bottom: 1px solid #fff;
+    background: transparent;
+    outline: none;
+    height: 40px;
+    color: #fff;
+    font-size: 16px;
+}
+.form-datos-envio option {
+   display: block;
+   height: 40px;
+   font-size: 16px;
+}
+.form-datos-envio button {
+    background-color: var(--first-color);
+    color: white;
+    border-radius: 80px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    width: 150px;
+    height: 40px;
+    margin-right: 10px;
+    font-size: 13px;
+}
+
+.form-datos-envio button {
+    display: block;
+    justify-content: space-around;
+    width: 100%;
+    margin-top: 2px;
+}
+.form-datos-envio button:hoover {
+    cursor: pointer;
+    background: #ffc107;
+    color: #000;
+}
+.tabla-productos {
+   width: 100%;
+   margin-top: 20px;
+   display: flex;
+}
+.tabla-productos table {
+    position:absolute;
+    background-color: #fff;
+    width: 75%;
+  height: 550px;
+  padding: 10px;
+  left: 600px
+}
+
+.total-container {
+    position:absolute;
+    background-color:#45230c;
+    top: 50%;
+    left: 80%;
+    width: 300px;
+    height: 180px;
+    box-sizing: border-box;
+    padding: 30px 30px;
+    color: #fff;
+}
+.total-detail h4{
+    margin: 0;
+    padding: 0;
+    font-weight:lighter;
+    font-size: 16px;
+    width: 100%;
+    margin-bottom: 13px;
+}
+.total-detail label {
+    margin: 0;
+    padding: 0;
+    font-weight:lighter;
+    font-size: 16px;
+    width: 100%;
+    margin-bottom: 13px;
+}
+
