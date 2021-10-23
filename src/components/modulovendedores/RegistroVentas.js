@@ -1,21 +1,45 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { DataGrid } from "@mui/x-data-grid";
+import axios from "axios";
 
 function RegistroVentas() {
-    const columns = [
-        { field: 'id', headerName: 'ID Venta', width: 150 },
-        { field: 'name', headerName: 'Nombre Cliente', width: 230 },
-        { field: 'total', headerName: 'Total venta', type: 'number', width: 150},
-        { field: 'date', headerName: 'Fecha', type: 'date', width: 150}
-       
-      ];
-      
-      const rows = [
-        { id: 1, name: 'Jon Snow', total: 35000, date: 20102021 },
-        { id: 2, name: '', total: '', date: '20102021' }
-      ];
-      
+  const [rows, setRows] = useState([]);
 
+  const getRows = async () => {
+    const res = await axios.get(
+      "http://localhost:3001/api/sales?sellerid=" +
+        localStorage.getItem("userid")
+    );
+    console.log(res.data);
+    const gettedRows = res.data.map((row) => {
+      return {
+        id: row._id,
+        name: row.clientname,
+        total: getTotal(row.detail),
+        date: row.date.slice(4, 16),
+      };
+    });
+    setRows(gettedRows);
+  };
+
+  useEffect(() => {
+    getRows();
+  }, []);
+
+  const columns = [
+    { field: "id", headerName: "ID Venta", width: 150 },
+    { field: "name", headerName: "Nombre Cliente", width: 230 },
+    { field: "total", headerName: "Total venta", type: "number", width: 150 },
+    { field: "date", headerName: "Fecha", type: "date", width: 150 },
+  ];
+
+  const getTotal = (detail) => {
+    let total = 0;
+    detail.map((row) => {
+      total += row.price * row.stock;
+    });
+    return total;
+  };
 
   return (
     <div style={{ height: 400, width: "100%" }}>
@@ -24,7 +48,7 @@ function RegistroVentas() {
         columns={columns}
         pageSize={4}
         rowsPerPageOptions={[5]}
-        />
+      />
     </div>
   );
 }

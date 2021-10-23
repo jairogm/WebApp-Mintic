@@ -23,7 +23,7 @@ function Vendedores() {
 
     const printForm = () => {
         if (openRegistrarVenta) {
-            return <RegistrarVenta />
+            return <RegistrarVenta setStates={setStates}/>
         } else if (openRegistroVentas) {
             return <RegistroVentas />
         } else if (openBuscarVenta) {
