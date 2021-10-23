@@ -27,10 +27,10 @@ function RegistroVentas() {
   }, []);
 
   const columns = [
-    { field: "id", headerName: "ID Venta", width: 150 },
-    { field: "name", headerName: "Nombre Cliente", width: 230 },
-    { field: "total", headerName: "Total venta", type: "number", width: 150 },
-    { field: "date", headerName: "Fecha", type: "date", width: 150 },
+    { field: "id", headerName: "ID Venta", flex: 1, minWidth:200 },
+    { field: "name", headerName: "Nombre Cliente", flex: 1, minWidth:200 },
+    { field: "total", headerName: "Total venta", type: "number", flex: 1, minWidth:200},
+    { field: "date", headerName: "Fecha", type: "date", flex: 1, minWidth:200 },
   ];
 
   const getTotal = (detail) => {
@@ -38,6 +38,8 @@ function RegistroVentas() {
     detail.map((row) => {
       total += row.price * row.stock;
     });
+    // Constante de envío (Ejemplo)
+    total += 2000
     return total;
   };
 
