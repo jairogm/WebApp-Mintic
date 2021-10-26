@@ -7,7 +7,7 @@ function RegistroVentas() {
 
   const getRows = async () => {
     const res = await axios.get(
-      "http://localhost:3001/api/sales?sellerid=" +
+      "https://readme-store-api.herokuapp.com/api/sales?sellerid=" +
         localStorage.getItem("userid")
     );
     console.log(res.data);
@@ -48,7 +48,7 @@ function RegistroVentas() {
       <DataGrid
         rows={rows}
         columns={columns}
-        pageSize={4}
+        pageSize={5}
         rowsPerPageOptions={[5]}
       />
     </div>

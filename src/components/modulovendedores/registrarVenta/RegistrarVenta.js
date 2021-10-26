@@ -95,7 +95,6 @@ export default function RegistrarVenta({ setStates }) {
       "https://readme-store-api.herokuapp.com/api/users?id=" +
         localStorage.getItem("userid")
     );
-    console.log(res.data);
     setSelectedSeller(res.data[0]);
   };
 
@@ -175,7 +174,7 @@ export default function RegistrarVenta({ setStates }) {
     axios
       .post("https://readme-store-api.herokuapp.com/api/sales", NewProduct)
       .then(() => {
-        setStates(false, true, false);
+        setStates(false, false, false);
       });
   };
 

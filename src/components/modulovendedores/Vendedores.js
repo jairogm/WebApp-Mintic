@@ -5,6 +5,7 @@ import RegistrarVenta from "./registrarVenta/RegistrarVenta";
 import HeaderSimple from "../headerSimple/HeaderSimple";
 import GestionVendedores from "../gestion-vendedores/gestion-vendedores"
 import RegistroVentas from './RegistroVentas';
+import EstadoVenta from "../estadoventa/EstadoVenta"
 
 
 import "./../css/vendedores.css"
@@ -20,6 +21,8 @@ function Vendedores() {
     const [openRegistrarVenta, SetOpenRegistrarVenta] = useState(false);
     const [openRegistroVentas, SetopenRegistroVentas] = useState(false);
     const [openBuscarVenta, SetOpenBuscarVenta] = useState(false);
+    const [openEstadoVenta, SetOpenEstadoVenta] = useState(false);
+    const [ventaEstado, setVentaEstado] = useState({});
 
     const printForm = () => {
         if (openRegistrarVenta) {
@@ -27,14 +30,17 @@ function Vendedores() {
         } else if (openRegistroVentas) {
             return <RegistroVentas />
         } else if (openBuscarVenta) {
-            return <BuscarVenta />
+            return <BuscarVenta ventaEstado={ventaEstado} setVentaEstado={setVentaEstado} setStates={setStates}/>
+        }else if (openEstadoVenta){
+            return <EstadoVenta ventaEstado={ventaEstado} setStates={setStates}/>
         }
     }
 
-    const setStates = (RegistrarVenta, RegistroVentas, buscarVenta) => {
+    const setStates = (RegistrarVenta, RegistroVentas, buscarVenta, estadoventa) => {
         SetOpenRegistrarVenta(RegistrarVenta)
         SetopenRegistroVentas(RegistroVentas)
         SetOpenBuscarVenta(buscarVenta)
+        SetOpenEstadoVenta(estadoventa)
     }
 
 
@@ -43,9 +49,9 @@ function Vendedores() {
             <HeaderSimple />
             <section className="container">
                 <section className="side-menu">
-                    <button onClick={() => { setStates(true, false, false) }}>Registrar Venta</button>
-                    <button onClick={() => { setStates(false, true, false) }}>Ventas del Mes</button>
-                    <button onClick={() => { setStates(false, false, true) }}>Buscar Ventas</button>
+                    <button onClick={() => { setStates(true, false, false, false) }}>Registrar Venta</button>
+                    <button onClick={() => { setStates(false, true, false, false) }}>Ventas del Mes</button>
+                    <button onClick={() => { setStates(false, false, true, false) }}>Buscar Ventas</button>
                 </section>
 
                 <section className="form">
