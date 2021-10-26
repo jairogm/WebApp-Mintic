@@ -39,8 +39,19 @@ function Login() {
       let respons = await axios.post("https://readme-store-api.herokuapp.com/api/users/auth", (data = data), { headers: headers })
       console.log(respons.data)
       let tokeninfo = jwt.decode(respons.data.token, process.env.REACT_APP_JWT_SECRET);
-      localStorage.setItem('rol', tokeninfo.rol)
-      localStorage.setItem('userid', tokeninfo.id)
+      if (tokeninfo.rol == 'Pending') {
+        alert(`Aún no cuentas con un Rol en el sistema
+Contacta con uno de los Administradores
+- lauracamila2417@gmail.com
+- betancourtlopez02@gmail.com
+- juanrespolo@gmail.com
+- jairogarces1@gmail.com
+- crihstianmol@gmail.com`)
+        window.location.replace('/')
+      }else{
+        localStorage.setItem('rol', tokeninfo.rol)
+        localStorage.setItem('userid', tokeninfo.id)
+      }
       getToken()
     }
   }

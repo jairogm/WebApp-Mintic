@@ -7,7 +7,7 @@ function Logout() {
     const logOut = (res) => {
         localStorage.clear()
         sessionStorage.clear()
-        window.location.replace("/login")
+        window.location.replace("/")
     };
 
     return (
